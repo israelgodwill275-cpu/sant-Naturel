@@ -1,3143 +1,2096 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>La santé par le naturel | Bien-être par les plantes</title>
-
-    <meta name="description"
-          content="La santé par le naturel : découvrez nos solutions naturelles à base de plantes pour votre bien-être. Commandez facilement via WhatsApp.">
-
-    <style>
-        /* =========================================================
-           RESET
-        ========================================================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f7ef;
-            color: #123b2c;
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        button {
-            font-family: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-
-        /* =========================================================
-           VARIABLES
-        ========================================================= */
-
-        :root {
-            --green-dark: #063b27;
-            --green: #087a45;
-            --green-light: #35d879;
-            --lime: #8ce63f;
-            --cream: #f5f7ef;
-            --white: #ffffff;
-            --text: #173d31;
-            --muted: #668177;
-            --gold: #e4ad38;
-            --shadow: 0 15px 40px rgba(0, 55, 35, 0.12);
-            --radius: 22px;
-        }
-
-
-        /* =========================================================
-           HEADER
-        ========================================================= */
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 76px;
-            z-index: 1000;
-
-            background: rgba(3, 45, 29, 0.92);
-            backdrop-filter: blur(14px);
-
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .nav-container {
-            width: min(1200px, 92%);
-            height: 100%;
-            margin: auto;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-
-        /* =========================================================
-           LOGO
-        ========================================================= */
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: white;
-        }
-
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-
-            border: 2px solid var(--green-light);
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            position: relative;
-        }
-
-        .logo-icon::before {
-            content: "";
-            width: 4px;
-            height: 28px;
-            background: var(--green-light);
-            border-radius: 10px;
-
-            transform: rotate(35deg);
-        }
-
-        .logo-icon::after {
-            content: "";
-            position: absolute;
-
-            width: 16px;
-            height: 9px;
-
-            border-left: 3px solid var(--green-light);
-            border-bottom: 3px solid var(--green-light);
-
-            transform: rotate(-35deg);
-            left: 12px;
-            top: 18px;
-        }
-
-        .logo-text {
-            line-height: 1.05;
-        }
-
-        .logo-text strong {
-            display: block;
-            font-family: Georgia, serif;
-            font-size: 19px;
-        }
-
-        .logo-text span {
-            color: var(--green-light);
-            font-family: Georgia, serif;
-            font-size: 16px;
-        }
-
-
-        /* =========================================================
-           NAVIGATION
-        ========================================================= */
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: rgba(255,255,255,.88);
-            font-size: 14px;
-            transition: .3s;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--green-light);
-        }
-
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -8px;
-            width: 0;
-            height: 2px;
-            background: var(--green-light);
-            transition: .3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-
-        /* =========================================================
-           WHATSAPP BUTTON
-        ========================================================= */
-
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 9px;
-
-            background: #20c967;
-            color: white;
-
-            padding: 13px 21px;
-            border-radius: 40px;
-
-            font-weight: bold;
-            font-size: 14px;
-
-            box-shadow: 0 8px 25px rgba(32,201,103,.25);
-
-            transition: .3s;
-        }
-
-        .whatsapp-btn:hover {
-            transform: translateY(-3px);
-            background: #18b85b;
-            box-shadow: 0 12px 30px rgba(32,201,103,.35);
-        }
-
-        .wa-icon {
-            font-size: 19px;
-        }
-
-
-        /* =========================================================
-           MOBILE MENU
-        ========================================================= */
-
-        .menu-btn {
-            display: none;
-
-            background: transparent;
-            border: none;
-            color: white;
-
-            font-size: 28px;
-            cursor: pointer;
-        }
-
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
-        .hero {
-            min-height: 760px;
-
-            padding-top: 76px;
-
-            position: relative;
-            overflow: hidden;
-
-            background:
-                radial-gradient(circle at 80% 25%, rgba(76,210,92,.18), transparent 25%),
-                radial-gradient(circle at 20% 80%, rgba(65,170,90,.12), transparent 30%),
-                linear-gradient(120deg, #032d1d, #075c37 55%, #063b27);
-        }
-
-        /* décor botanique */
-
-        .leaf {
-            position: absolute;
-            width: 140px;
-            height: 70px;
-
-            border-radius: 100% 0 100% 0;
-
-            background: rgba(77,220,107,.12);
-
-            transform: rotate(25deg);
-            filter: blur(.2px);
-        }
-
-        .leaf.one {
-            top: 150px;
-            left: -50px;
-        }
-
-        .leaf.two {
-            bottom: 100px;
-            right: -40px;
-            transform: rotate(-30deg);
-        }
-
-        .leaf.three {
-            top: 280px;
-            right: 20%;
-            width: 80px;
-            height: 45px;
-            opacity: .5;
-        }
-
-
-        .hero-container {
-            width: min(1200px, 92%);
-            min-height: 684px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .hero-content {
-            color: white;
-            position: relative;
-            z-index: 2;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-
-            padding: 8px 15px;
-            border-radius: 30px;
-
-            background: rgba(143,235,78,.12);
-            border: 1px solid rgba(143,235,78,.3);
-
-            color: var(--lime);
-
-            font-size: 13px;
-            font-weight: bold;
-
-            margin-bottom: 22px;
-        }
-
-        .hero h1 {
-            font-family: Georgia, "Times New Roman", serif;
-
-            font-size: clamp(45px, 6vw, 75px);
-            line-height: .98;
-
-            margin-bottom: 24px;
-        }
-
-        .hero h1 span {
-            color: var(--green-light);
-        }
-
-        .hero-description {
-            max-width: 570px;
-
-            color: rgba(255,255,255,.75);
-
-            font-size: 17px;
-            line-height: 1.7;
-
-            margin-bottom: 32px;
-        }
-
-        .hero-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .primary-btn {
-            padding: 16px 25px;
-            border-radius: 40px;
-
-            background: var(--green-light);
-            color: #053c26;
-
-            font-weight: bold;
-
-            transition: .3s;
-        }
-
-        .primary-btn:hover {
-            transform: translateY(-3px) scale(1.02);
-        }
-
-        .secondary-btn {
-            padding: 15px 23px;
-            border: 1px solid rgba(255,255,255,.25);
-            border-radius: 40px;
-
-            color: white;
-
-            transition: .3s;
-        }
-
-        .secondary-btn:hover {
-            background: rgba(255,255,255,.08);
-        }
-
-
-        /* =========================================================
-           HERO ILLUSTRATION
-        ========================================================= */
-
-        .hero-visual {
-            position: relative;
-            min-height: 500px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .glow {
-            position: absolute;
-
-            width: 390px;
-            height: 390px;
-
-            border-radius: 50%;
-
-            background: rgba(96, 225, 101, .12);
-
-            filter: blur(20px);
-        }
-
-        .plant-circle {
-            width: 420px;
-            height: 420px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(circle at 40% 30%, #80e870, transparent 3%),
-                linear-gradient(145deg, #173f2a, #09271c);
-
-            border: 1px solid rgba(126,235,111,.2);
-
-            box-shadow:
-                0 30px 80px rgba(0,0,0,.3),
-                inset 0 0 60px rgba(91,220,100,.08);
-
-            position: relative;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .bowl {
-            width: 190px;
-            height: 100px;
-
-            background: linear-gradient(#a8733c, #714522);
-
-            border-radius: 0 0 100px 100px;
-
-            position: absolute;
-            bottom: 105px;
-
-            box-shadow: inset 0 8px 15px rgba(255,255,255,.15);
-        }
-
-        .bowl::before {
-            content: "";
-            position: absolute;
-
-            width: 190px;
-            height: 48px;
-
-            top: -20px;
-            left: 0;
-
-            background: #4c301c;
-            border-radius: 50%;
-        }
-
-        .herb {
-            position: absolute;
-
-            width: 22px;
-            height: 90px;
-
-            background: linear-gradient(90deg, #3c9c4d, #8ae55d);
-
-            border-radius: 100% 0 100% 0;
-
-            transform-origin: bottom;
-        }
-
-        .herb:nth-child(1) {
-            transform: rotate(-35deg);
-            left: 120px;
-            top: 110px;
-        }
-
-        .herb:nth-child(2) {
-            transform: rotate(15deg);
-            left: 190px;
-            top: 90px;
-        }
-
-        .herb:nth-child(3) {
-            transform: rotate(45deg);
-            left: 235px;
-            top: 130px;
-        }
-
-        .herb:nth-child(4) {
-            transform: rotate(-55deg);
-            left: 175px;
-            top: 145px;
-        }
-
-        .herb:nth-child(5) {
-            transform: rotate(65deg);
-            left: 275px;
-            top: 180px;
-        }
-
-        .floating-card {
-            position: absolute;
-
-            padding: 15px 18px;
-
-            background: rgba(255,255,255,.95);
-            color: var(--text);
-
-            border-radius: 18px;
-
-            box-shadow: var(--shadow);
-
-            font-size: 13px;
-            font-weight: bold;
-        }
-
-        .floating-card small {
-            display: block;
-            margin-top: 5px;
-            color: var(--muted);
-            font-weight: normal;
-        }
-
-        .card-one {
-            top: 70px;
-            left: 0;
-            animation: floating 4s ease-in-out infinite;
-        }
-
-        .card-two {
-            bottom: 80px;
-            right: 0;
-            animation: floating 5s ease-in-out infinite reverse;
-        }
-
-        @keyframes floating {
-            0%,100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-12px);
-            }
-        }
-
-
-        /* =========================================================
-           TRUST BAR
-        ========================================================= */
-
-        .trust-bar {
-            background: white;
-
-            box-shadow: 0 10px 35px rgba(0,0,0,.06);
-
-            position: relative;
-            z-index: 5;
-        }
-
-        .trust-container {
-            width: min(1200px, 92%);
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-        }
-
-        .trust-item {
-            padding: 28px 15px;
-
-            text-align: center;
-
-            border-right: 1px solid #e8eee8;
-        }
-
-        .trust-item:last-child {
-            border: none;
-        }
-
-        .trust-icon {
-            width: 48px;
-            height: 48px;
-
-            margin: auto auto 10px;
-
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: #e8f8e9;
-            color: var(--green);
-
-            font-size: 22px;
-        }
-
-        .trust-item strong {
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        .trust-item span {
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-
-        /* =========================================================
-           GENERAL SECTIONS
-        ========================================================= */
-
-        section {
-            padding: 95px 0;
-        }
-
-        .container {
-            width: min(1200px, 92%);
-            margin: auto;
-        }
-
-        .section-heading {
-            max-width: 680px;
-            margin: 0 auto 55px;
-            text-align: center;
-        }
-
-        .section-tag {
-            color: var(--green);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 12px;
-            font-weight: bold;
-
-            margin-bottom: 12px;
-        }
-
-        .section-heading h2 {
-            font-family: Georgia, serif;
-            font-size: clamp(32px, 4vw, 50px);
-
-            color: var(--green-dark);
-
-            margin-bottom: 15px;
-        }
-
-        .section-heading p {
-            color: var(--muted);
-            line-height: 1.7;
-        }
-
-
-        /* =========================================================
-           ABOUT
-        ========================================================= */
-
-        .about {
-            background: #f5f7ef;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 70px;
-        }
-
-        .about-visual {
-            min-height: 480px;
-
-            border-radius: 35px;
-
-            background:
-                radial-gradient(circle at 30% 30%, rgba(142,224,90,.4), transparent 15%),
-                linear-gradient(145deg,#d9e8c8,#eef3dd);
-
-            position: relative;
-            overflow: hidden;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .about-plant {
-            font-size: 170px;
-            filter: drop-shadow(10px 15px 20px rgba(0,0,0,.15));
-            transform: rotate(-8deg);
-        }
-
-        .about-circle {
-            position: absolute;
-
-            width: 300px;
-            height: 300px;
-
-            border: 1px dashed rgba(8,122,69,.3);
-            border-radius: 50%;
-        }
-
-        .about-content h2 {
-            font-family: Georgia, serif;
-
-            font-size: 45px;
-
-            margin-bottom: 20px;
-            color: var(--green-dark);
-        }
-
-        .about-content > p {
-            color: var(--muted);
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-
-        .check-list {
-            list-style: none;
-
-            display: grid;
-            gap: 15px;
-
-            margin-bottom: 30px;
-        }
-
-        .check-list li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .check {
-            width: 26px;
-            height: 26px;
-
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: #dff5e3;
-            color: var(--green);
-
-            font-size: 13px;
-        }
-
-
-        /* =========================================================
-           PRODUCTS
-        ========================================================= */
-
-        .products {
-            background: white;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 22px;
-        }
-
-        .product-card {
-            background: #f7faf4;
-
-            border: 1px solid #e3ebe2;
-
-            border-radius: var(--radius);
-
-            overflow: hidden;
-
-            transition: .35s;
-
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow);
-        }
-
-        .product-image {
-            height: 210px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            position: relative;
-
-            overflow: hidden;
-
-            background:
-                radial-gradient(circle at 50% 50%, #d8edc3, transparent 55%),
-                #edf3e4;
-        }
-
-        .product-image::before,
-        .product-image::after {
-            content: "";
-
-            position: absolute;
-
-            width: 100px;
-            height: 50px;
-
-            border-radius: 100% 0 100% 0;
-
-            background: rgba(54,150,67,.3);
-
-            transform: rotate(30deg);
-        }
-
-        .product-image::before {
-            left: 20px;
-            bottom: 25px;
-        }
-
-        .product-image::after {
-            right: 15px;
-            top: 25px;
-            transform: rotate(-30deg);
-        }
-
-        .product-symbol {
-            font-size: 75px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .product-body {
-            padding: 22px;
-        }
-
-        .product-body h3 {
-            margin-bottom: 9px;
-            color: var(--green-dark);
-        }
-
-        .product-body p {
-            color: var(--muted);
-            font-size: 13px;
-            line-height: 1.6;
-
-            min-height: 62px;
-        }
-
-        .product-footer {
-            margin-top: 18px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        .price {
-            font-weight: bold;
-            color: var(--green);
-            font-size: 16px;
-        }
-
-        .order-small {
-            border: none;
-
-            background: #dff7e6;
-            color: var(--green-dark);
-
-            padding: 10px 13px;
-
-            border-radius: 30px;
-
-            font-weight: bold;
-            font-size: 12px;
-
-            cursor: pointer;
-
-            transition: .3s;
-        }
-
-        .order-small:hover {
-            background: var(--green);
-            color: white;
-        }
-
-
-        /* =========================================================
-           BENEFITS
-        ========================================================= */
-
-        .benefits {
-            background: #073e2a;
-            color: white;
-
-            position: relative;
-            overflow: hidden;
-        }
-
-        .benefits .section-heading h2 {
-            color: white;
-        }
-
-        .benefits .section-heading p {
-            color: rgba(255,255,255,.65);
-        }
-
-        .benefit-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 25px;
-        }
-
-        .benefit-card {
-            padding: 32px;
-
-            border-radius: 25px;
-
-            background: rgba(255,255,255,.06);
-            border: 1px solid rgba(255,255,255,.1);
-
-            transition: .3s;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,.09);
-        }
-
-        .benefit-icon {
-            font-size: 34px;
-            margin-bottom: 20px;
-        }
-
-        .benefit-card h3 {
-            margin-bottom: 12px;
-        }
-
-        .benefit-card p {
-            color: rgba(255,255,255,.65);
-            line-height: 1.7;
-            font-size: 14px;
-        }
-
-
-        /* =========================================================
-           PROCESS
-        ========================================================= */
-
-        .process {
-            background: #eef4e8;
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 30px;
-        }
-
-        .step {
-            background: white;
-            border-radius: 25px;
-
-            padding: 35px 28px;
-
-            text-align: center;
-
-            box-shadow: 0 8px 30px rgba(0,0,0,.05);
-        }
-
-        .step-number {
-            width: 55px;
-            height: 55px;
-
-            margin: 0 auto 20px;
-
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: var(--green);
-            color: white;
-
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-        .step h3 {
-            margin-bottom: 12px;
-        }
-
-        .step p {
-            color: var(--muted);
-            line-height: 1.7;
-            font-size: 14px;
-        }
-
-
-        /* =========================================================
-           TESTIMONIALS
-        ========================================================= */
-
-        .testimonials {
-            background: white;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 25px;
-        }
-
-        .testimonial {
-            padding: 30px;
-
-            background: #f7faf4;
-
-            border-radius: 25px;
-
-            border: 1px solid #e5ede3;
-        }
-
-        .stars {
-            color: var(--gold);
-            margin-bottom: 15px;
-        }
-
-        .testimonial p {
-            color: #526c61;
-            line-height: 1.7;
-            font-size: 14px;
-            margin-bottom: 22px;
-        }
-
-        .person {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .avatar {
-            width: 42px;
-            height: 42px;
-
-            border-radius: 50%;
-
-            background: linear-gradient(135deg,#32c76b,#075c37);
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: white;
-            font-weight: bold;
-        }
-
-        .person strong {
-            display: block;
-            font-size: 13px;
-        }
-
-        .person span {
-            font-size: 11px;
-            color: var(--muted);
-        }
-
-
-        /* =========================================================
-           CTA
-        ========================================================= */
-
-        .cta {
-            padding: 80px 0;
-            background:
-                radial-gradient(circle at 20% 30%, rgba(128,231,102,.2), transparent 25%),
-                linear-gradient(120deg,#063b27,#0a7042);
-
-            color: white;
-        }
-
-        .cta-container {
-            width: min(1000px,92%);
-            margin: auto;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-        }
-
-        .cta h2 {
-            font-family: Georgia, serif;
-            font-size: clamp(30px,4vw,48px);
-            margin-bottom: 12px;
-        }
-
-        .cta p {
-            color: rgba(255,255,255,.7);
-            line-height: 1.6;
-        }
-
-
-        /* =========================================================
-           CONTACT
-        ========================================================= */
-
-        .contact {
-            background: #f5f7ef;
-        }
-
-        .contact-box {
-            max-width: 850px;
-            margin: auto;
-
-            background: white;
-
-            border-radius: 30px;
-
-            padding: 45px;
-
-            text-align: center;
-
-            box-shadow: var(--shadow);
-        }
-
-        .contact-box h2 {
-            font-family: Georgia, serif;
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .contact-box p {
-            color: var(--muted);
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .phone {
-            display: block;
-
-            font-size: 24px;
-            font-weight: bold;
-
-            color: var(--green);
-
-            margin-bottom: 25px;
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-            background: #03291b;
-            color: white;
-
-            padding: 55px 0 25px;
-        }
-
-        .footer-grid {
-            width: min(1200px,92%);
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 45px;
-
-            padding-bottom: 40px;
-
-            border-bottom: 1px solid rgba(255,255,255,.1);
-        }
-
-        .footer-brand p {
-            max-width: 350px;
-
-            color: rgba(255,255,255,.55);
-
-            line-height: 1.7;
-
-            margin-top: 18px;
-        }
-
-        footer h4 {
-            margin-bottom: 18px;
-        }
-
-        .footer-links {
-            list-style: none;
-
-            display: grid;
-            gap: 11px;
-        }
-
-        .footer-links a {
-            color: rgba(255,255,255,.55);
-            font-size: 13px;
-            transition: .3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--green-light);
-        }
-
-        .copyright {
-            width: min(1200px,92%);
-            margin: 22px auto 0;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            color: rgba(255,255,255,.4);
-
-            font-size: 12px;
-        }
-
-
-        /* =========================================================
-           WHATSAPP FLOATING BUTTON
-        ========================================================= */
-
-        .whatsapp-floating {
-            position: fixed;
-
-            right: 22px;
-            bottom: 22px;
-
-            width: 62px;
-            height: 62px;
-
-            border-radius: 50%;
-
-            background: #20c967;
-
-            color: white;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 29px;
-
-            box-shadow: 0 10px 35px rgba(0,0,0,.25);
-
-            z-index: 999;
-
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(32,201,103,.5);
-            }
-
-            70% {
-                box-shadow: 0 0 0 15px rgba(32,201,103,0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(32,201,103,0);
-            }
-        }
-
-
-        /* =========================================================
-           ORDER MODAL
-        ========================================================= */
-
-        .modal {
-            position: fixed;
-
-            inset: 0;
-
-            background: rgba(0,0,0,.65);
-
-            display: none;
-
-            align-items: center;
-            justify-content: center;
-
-            padding: 20px;
-
-            z-index: 2000;
-
-            backdrop-filter: blur(5px);
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-box {
-            width: min(500px,100%);
-
-            background: white;
-
-            border-radius: 28px;
-
-            padding: 32px;
-
-            position: relative;
-
-            animation: modalIn .3s ease;
-        }
-
-        @keyframes modalIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px) scale(.97);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .close-modal {
-            position: absolute;
-
-            top: 15px;
-            right: 18px;
-
-            width: 35px;
-            height: 35px;
-
-            border-radius: 50%;
-
-            border: none;
-
-            background: #eef3ed;
-
-            cursor: pointer;
-
-            font-size: 20px;
-        }
-
-        .modal-box h2 {
-            font-family: Georgia, serif;
-            color: var(--green-dark);
-
-            margin-bottom: 10px;
-        }
-
-        .modal-box > p {
-            color: var(--muted);
-            font-size: 14px;
-            margin-bottom: 22px;
-        }
-
-        .order-product {
-            padding: 15px;
-
-            background: #f3f8f1;
-
-            border-radius: 15px;
-
-            margin-bottom: 20px;
-
-            font-weight: bold;
-        }
-
-        .quantity {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            margin-bottom: 20px;
-        }
-
-        .quantity input {
-            width: 80px;
-
-            padding: 11px;
-
-            border: 1px solid #d8e3d8;
-
-            border-radius: 10px;
-
-            font-size: 16px;
-        }
-
-        .modal-whatsapp {
-            width: 100%;
-
-            border: none;
-
-            cursor: pointer;
-
-            padding: 15px;
-
-            border-radius: 40px;
-
-            background: #20c967;
-
-            color: white;
-
-            font-weight: bold;
-
-            font-size: 15px;
-        }
-
-
-        /* =========================================================
-           SCROLL REVEAL
-        ========================================================= */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-
-            transition:
-                opacity .7s ease,
-                transform .7s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-
-        /* =========================================================
-           RESPONSIVE TABLET
-        ========================================================= */
-
-        @media (max-width: 950px) {
-
-            .nav-links {
-                gap: 15px;
-            }
-
-            .header-whatsapp {
-                display: none;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-
-                padding-top: 60px;
-                padding-bottom: 60px;
-            }
-
-            .hero-description {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-actions {
-                justify-content: center;
-            }
-
-            .hero-visual {
-                min-height: 400px;
-            }
-
-            .plant-circle {
-                width: 330px;
-                height: 330px;
-            }
-
-            .product-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-content {
-                text-align: center;
-            }
-
-            .check-list {
-                text-align: left;
-                max-width: 450px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .benefit-grid,
-            .process-grid,
-            .testimonial-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .footer-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-        }
-
-
-        /* =========================================================
-           RESPONSIVE MOBILE
-        ========================================================= */
-
-        @media (max-width: 700px) {
-
-            header {
-                height: 68px;
-            }
-
-            .logo-icon {
-                width: 40px;
-                height: 40px;
-            }
-
-            .logo-text strong {
-                font-size: 15px;
-            }
-
-            .logo-text span {
-                font-size: 13px;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                position: absolute;
-
-                top: 68px;
-                left: 0;
-
-                width: 100%;
-
-                padding: 25px;
-
-                background: #032d1d;
-
-                display: none;
-                flex-direction: column;
-
-                gap: 22px;
-
-                border-top: 1px solid rgba(255,255,255,.08);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                font-size: 15px;
-            }
-
-            .hero {
-                min-height: auto;
-            }
-
-            .hero-container {
-                padding-top: 80px;
-                gap: 15px;
-            }
-
-            .hero h1 {
-                font-size: 43px;
-            }
-
-            .hero-description {
-                font-size: 15px;
-            }
-
-            .hero-visual {
-                min-height: 350px;
-            }
-
-            .plant-circle {
-                width: 280px;
-                height: 280px;
-            }
-
-            .glow {
-                width: 280px;
-                height: 280px;
-            }
-
-            .bowl {
-                width: 135px;
-                height: 70px;
-                bottom: 70px;
-            }
-
-            .bowl::before {
-                width: 135px;
-                height: 35px;
-            }
-
-            .floating-card {
-                padding: 11px 13px;
-                font-size: 11px;
-            }
-
-            .card-one {
-                left: 0;
-                top: 45px;
-            }
-
-            .card-two {
-                right: 0;
-                bottom: 45px;
-            }
-
-            .trust-container {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .trust-item {
-                padding: 22px 10px;
-            }
-
-            .trust-item:nth-child(2) {
-                border-right: none;
-            }
-
-            section {
-                padding: 65px 0;
-            }
-
-            .section-heading {
-                margin-bottom: 35px;
-            }
-
-            .about-visual {
-                min-height: 300px;
-            }
-
-            .about-plant {
-                font-size: 110px;
-            }
-
-            .about-circle {
-                width: 220px;
-                height: 220px;
-            }
-
-            .about-content h2 {
-                font-size: 34px;
-            }
-
-            .product-grid,
-            .benefit-grid,
-            .process-grid,
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .product-image {
-                height: 190px;
-            }
-
-            .cta-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .contact-box {
-                padding: 30px 20px;
-            }
-
-            .contact-box h2 {
-                font-size: 32px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .copyright {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-
-            .whatsapp-floating {
-                width: 55px;
-                height: 55px;
-
-                right: 15px;
-                bottom: 15px;
-
-                font-size: 25px;
-            }
-        }
-
-
-        /* =========================================================
-           VERY SMALL PHONES
-        ========================================================= */
-
-        @media (max-width: 380px) {
-
-            .hero h1 {
-                font-size: 37px;
-            }
-
-            .hero-actions {
-                flex-direction: column;
-            }
-
-            .primary-btn,
-            .secondary-btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .product-footer {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .order-small {
-                width: 100%;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>La Santé par le Naturel — Bien-être par les plantes</title>
+
+<meta name="description"
+content="La Santé par le Naturel — découvrez une approche naturelle du bien-être inspirée des plantes et du savoir traditionnel.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:#f7f4ec;
+    color:#18382b;
+    overflow-x:hidden;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+    --green:#164d38;
+    --green-dark:#0b2d20;
+    --green-light:#dce9df;
+    --mint:#b8d8bd;
+    --cream:#f7f4ec;
+    --cream-dark:#ece7da;
+    --gold:#c89a50;
+    --white:#fff;
+    --text:#18382b;
+    --muted:#6c786f;
+    --shadow:0 25px 70px rgba(18,48,35,.12);
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    transition:.35s;
+}
+
+header.scrolled{
+    background:rgba(247,244,236,.92);
+    backdrop-filter:blur(18px);
+    box-shadow:0 5px 30px rgba(0,0,0,.07);
+}
+
+.navbar{
+    max-width:1250px;
+    margin:auto;
+    height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-family:"Playfair Display",serif;
+    font-size:22px;
+    font-weight:700;
+    color:var(--green);
+}
+
+.logo-mark{
+    width:43px;
+    height:43px;
+    border-radius:50%;
+    background:var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.logo-mark svg{
+    width:29px;
+    height:29px;
+}
+
+.logo span{
+    color:#6b8f70;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav-links{
+    display:flex;
+    gap:32px;
+    align-items:center;
+}
+
+.nav-links a{
+    font-size:14px;
+    font-weight:600;
+    color:#335142;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.nav-cta{
+    padding:12px 20px;
+    border-radius:50px;
+    background:var(--green);
+    color:white !important;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:none;
+    font-size:28px;
+    color:var(--green);
+    cursor:pointer;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 10% 20%,rgba(184,216,189,.55),transparent 28%),
+        radial-gradient(circle at 90% 80%,rgba(200,154,80,.12),transparent 30%),
+        var(--cream);
+}
+
+.hero-container{
+    max-width:1250px;
+    width:100%;
+    margin:auto;
+    padding:130px 25px 80px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 14px;
+    border-radius:50px;
+    background:#e1ece2;
+    color:var(--green);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:24px;
+}
+
+.eyebrow-dot{
+    width:7px;
+    height:7px;
+    background:#82a982;
+    border-radius:50%;
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(48px,6vw,82px);
+    line-height:1.02;
+    letter-spacing:-2px;
+    color:var(--green-dark);
+    margin-bottom:27px;
+}
+
+.hero h1 em{
+    color:#759879;
+    font-style:normal;
+}
+
+.hero-text{
+    max-width:570px;
+    color:#637268;
+    font-size:17px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:15px 23px;
+    border-radius:50px;
+    font-size:14px;
+    font-weight:700;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:var(--green);
+    color:white;
+    box-shadow:0 12px 30px rgba(22,77,56,.22);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    background:#0e3929;
+}
+
+.btn-secondary{
+    border:1px solid #c9d3ca;
+    color:var(--green);
+    background:rgba(255,255,255,.4);
+}
+
+.btn-secondary:hover{
+    background:white;
+}
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.hero-visual{
+    position:relative;
+    min-height:570px;
+}
+
+.hero-photo{
+    position:absolute;
+    width:80%;
+    height:510px;
+    right:0;
+    top:20px;
+    border-radius:220px 220px 25px 25px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    filter:saturate(.9);
+}
+
+.hero-photo::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,rgba(11,45,32,.05),rgba(11,45,32,.25));
+}
+
+.floating-card{
+    position:absolute;
+    left:0;
+    bottom:65px;
+    width:210px;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(12px);
+    padding:20px;
+    border-radius:22px;
+    box-shadow:0 20px 45px rgba(18,48,35,.15);
+    animation:float 5s ease-in-out infinite;
+}
+
+.floating-card small{
+    color:#7b887e;
+    font-size:11px;
+}
+
+.floating-card strong{
+    display:block;
+    font-family:"Playfair Display",serif;
+    font-size:22px;
+    margin:6px 0;
+    color:var(--green);
+}
+
+.leaf-decoration{
+    position:absolute;
+    right:-70px;
+    top:-50px;
+    width:230px;
+    opacity:.15;
+    transform:rotate(20deg);
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-12px)}
+}
+
+/* =========================================================
+   TRUST BAR
+========================================================= */
+
+.trust{
+    background:var(--green);
+    color:white;
+}
+
+.trust-inner{
+    max-width:1150px;
+    margin:auto;
+    padding:18px 25px;
+    display:flex;
+    justify-content:space-around;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.trust-item{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-size:13px;
+}
+
+.trust-item span{
+    color:#c7dfc9;
+}
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+section{
+    padding:110px 25px;
+}
+
+.section-container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.section-header{
+    max-width:700px;
+    margin-bottom:55px;
+}
+
+.section-label{
+    color:#7d9d80;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+}
+
+.section-title{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(38px,5vw,58px);
+    line-height:1.08;
+    color:var(--green-dark);
+}
+
+.section-text{
+    color:#718077;
+    line-height:1.8;
+    margin-top:20px;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro{
+    background:#fffdf8;
+}
+
+.intro-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.intro-image{
+    height:520px;
+    border-radius:25px;
+    overflow:hidden;
+    position:relative;
+}
+
+.intro-image img{
+    height:100%;
+    object-fit:cover;
+}
+
+.intro-badge{
+    position:absolute;
+    bottom:25px;
+    right:25px;
+    background:white;
+    padding:18px 20px;
+    border-radius:17px;
+    box-shadow:var(--shadow);
+    max-width:210px;
+}
+
+.intro-badge strong{
+    display:block;
+    font-family:"Playfair Display",serif;
+    color:var(--green);
+    font-size:18px;
+    margin-bottom:5px;
+}
+
+.intro-badge span{
+    color:#7b877e;
+    font-size:12px;
+}
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services{
+    background:#edf3ed;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.service-card{
+    background:white;
+    padding:34px;
+    border-radius:24px;
+    min-height:250px;
+    transition:.35s;
+    border:1px solid rgba(22,77,56,.05);
+}
+
+.service-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow);
+}
+
+.service-icon{
+    width:55px;
+    height:55px;
+    border-radius:18px;
+    background:#e3eee3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    margin-bottom:25px;
+}
+
+.service-card h3{
+    font-family:"Playfair Display",serif;
+    color:var(--green);
+    font-size:23px;
+    margin-bottom:12px;
+}
+
+.service-card p{
+    color:#778279;
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* =========================================================
+   BOTANICAL SECTION
+========================================================= */
+
+.botanical{
+    background:var(--green-dark);
+    color:white;
+    overflow:hidden;
+}
+
+.botanical .section-title{
+    color:white;
+}
+
+.botanical .section-text{
+    color:#b8c9bd;
+}
+
+.botanical-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.botanical-image{
+    position:relative;
+    height:550px;
+    border-radius:25px;
+    overflow:hidden;
+}
+
+.botanical-image img{
+    height:100%;
+    object-fit:cover;
+}
+
+.botanical-content{
+    position:relative;
+}
+
+.botanical-list{
+    margin-top:30px;
+    display:grid;
+    gap:17px;
+}
+
+.botanical-item{
+    display:flex;
+    gap:15px;
+    align-items:flex-start;
+}
+
+.botanical-check{
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    background:#87ad8c;
+    color:var(--green-dark);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    flex-shrink:0;
+}
+
+.botanical-item h4{
+    font-size:15px;
+    margin-bottom:4px;
+}
+
+.botanical-item p{
+    color:#aabdb0;
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+.products{
+    background:#fffdf8;
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.product-card{
+    background:#f5f1e8;
+    border-radius:25px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-7px);
+    box-shadow:var(--shadow);
+}
+
+.product-image{
+    height:280px;
+    overflow:hidden;
+}
+
+.product-image img{
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.product-card:hover .product-image img{
+    transform:scale(1.05);
+}
+
+.product-info{
+    padding:25px;
+}
+
+.product-tag{
+    color:#8aa28d;
+    font-size:11px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+}
+
+.product-info h3{
+    font-family:"Playfair Display",serif;
+    color:var(--green);
+    font-size:24px;
+    margin:8px 0;
+}
+
+.product-info p{
+    color:#748078;
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process{
+    background:#f0eee6;
+}
+
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.process-card{
+    position:relative;
+    padding:28px;
+}
+
+.process-number{
+    font-family:"Playfair Display",serif;
+    font-size:55px;
+    color:#b8ccb9;
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.process-card h3{
+    color:var(--green);
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.process-card p{
+    color:#78847b;
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* =========================================================
+   TESTIMONIAL
+========================================================= */
+
+.testimonial{
+    background:#fffdf8;
+    text-align:center;
+}
+
+.quote{
+    max-width:820px;
+    margin:auto;
+}
+
+.quote-mark{
+    font-family:"Playfair Display",serif;
+    font-size:80px;
+    color:#a9c3aa;
+    line-height:.7;
+}
+
+.quote p{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(25px,4vw,42px);
+    line-height:1.3;
+    color:var(--green);
+    margin:20px 0;
+}
+
+.quote small{
+    color:#849087;
+}
+
+/* =========================================================
+   WHATSAPP CTA
+========================================================= */
+
+.contact{
+    background:
+        linear-gradient(rgba(11,45,32,.87),rgba(11,45,32,.93)),
+        url("https://images.pexels.com/photos/7615453/pexels-photo-7615453.jpeg?auto=compress&cs=tinysrgb&w=1600");
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+}
+
+.contact-inner{
+    max-width:800px;
+    margin:auto;
+}
+
+.contact h2{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(40px,6vw,65px);
+    margin-bottom:20px;
+}
+
+.contact p{
+    color:#c5d4c8;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.whatsapp-btn{
+    background:#25D366;
+    color:white;
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+.whatsapp-btn:hover{
+    transform:translateY(-3px);
+    background:#1db954;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#071f16;
+    color:white;
+    padding:60px 25px 25px;
+}
+
+.footer-grid{
+    max-width:1150px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:50px;
+}
+
+.footer-brand p{
+    color:#91a69a;
+    max-width:350px;
+    margin-top:15px;
+    line-height:1.7;
+    font-size:14px;
+}
+
+.footer-title{
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.footer-links{
+    display:grid;
+    gap:10px;
+}
+
+.footer-links a{
+    color:#91a69a;
+    font-size:13px;
+}
+
+.footer-links a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    max-width:1150px;
+    margin:50px auto 0;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.1);
+    color:#70877a;
+    font-size:12px;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+/* =========================================================
+   WHATSAPP FLOATING
+========================================================= */
+
+.whatsapp-float{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    z-index:999;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}
+    70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
+}
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        position:absolute;
+        top:82px;
+        left:15px;
+        right:15px;
+        background:white;
+        border-radius:20px;
+        padding:20px;
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        gap:4px;
+        box-shadow:var(--shadow);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links a{
+        padding:14px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-container{
+        grid-template-columns:1fr;
+        padding-top:120px;
+    }
+
+    .hero-visual{
+        min-height:470px;
+    }
+
+    .hero-photo{
+        width:85%;
+        height:430px;
+    }
+
+    .intro-grid,
+    .botanical-grid{
+        grid-template-columns:1fr;
+    }
+
+    .service-grid,
+    .product-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:80px 18px;
+    }
+
+    .navbar{
+        padding:0 18px;
+    }
+
+    .logo{
+        font-size:19px;
+    }
+
+    .logo-mark{
+        width:38px;
+        height:38px;
+    }
+
+    .hero-container{
+        padding:110px 18px 60px;
+        gap:30px;
+    }
+
+    .hero h1{
+        font-size:49px;
+        letter-spacing:-1.5px;
+    }
+
+    .hero-text{
+        font-size:15px;
+    }
+
+    .hero-visual{
+        min-height:420px;
+    }
+
+    .hero-photo{
+        width:88%;
+        height:390px;
+    }
+
+    .floating-card{
+        width:175px;
+        padding:16px;
+        bottom:35px;
+    }
+
+    .floating-card strong{
+        font-size:18px;
+    }
+
+    .trust-inner{
+        justify-content:flex-start;
+        padding:17px 18px;
+    }
+
+    .trust-item{
+        font-size:11px;
+    }
+
+    .intro-image,
+    .botanical-image{
+        height:390px;
+    }
+
+    .service-grid,
+    .product-grid,
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .service-card{
+        min-height:auto;
+    }
+
+    .product-image{
+        height:260px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+    }
+
+    .whatsapp-float{
+        width:55px;
+        height:55px;
+        right:15px;
+        bottom:15px;
+    }
+}
+
+</style>
 </head>
 
 
 <body>
 
-
-<!-- =========================================================
+<!-- ======================================================
      HEADER
-========================================================= -->
+====================================================== -->
 
-<header>
+<header id="header">
 
-    <div class="nav-container">
+<nav class="navbar">
 
-        <a href="#accueil" class="logo">
+<a href="#accueil" class="logo">
 
-            <div class="logo-icon"></div>
+<div class="logo-mark">
 
-            <div class="logo-text">
-                <strong>La santé</strong>
-                <span>par le naturel</span>
-            </div>
+<svg viewBox="0 0 40 40" fill="none">
 
-        </a>
+<path d="M20 34C20 25 19 18 12 11"
+stroke="#ffffff"
+stroke-width="2"
+stroke-linecap="round"/>
 
+<path d="M20 26C26 24 30 19 30 13C24 13 20 17 20 23"
+fill="#9bc69d"/>
 
-        <nav>
+<path d="M18 21C13 20 9 16 10 11C15 11 19 14 18 21"
+fill="#d7ead7"/>
 
-            <ul class="nav-links" id="navLinks">
+</svg>
 
-                <li>
-                    <a href="#accueil">Accueil</a>
-                </li>
+</div>
 
-                <li>
-                    <a href="#apropos">À propos</a>
-                </li>
+La Santé <span>par le Naturel</span>
 
-                <li>
-                    <a href="#produits">Nos produits</a>
-                </li>
-
-                <li>
-                    <a href="#bienfaits">Bienfaits</a>
-                </li>
-
-                <li>
-                    <a href="#temoignages">Témoignages</a>
-                </li>
-
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-
-            </ul>
-
-        </nav>
+</a>
 
 
-        <a
-            class="whatsapp-btn header-whatsapp"
-            href="https://wa.me/237670335411?text=Bonjour%20La%20sant%C3%A9%20par%20le%20naturel%2C%20je%20souhaite%20passer%20une%20commande."
-            target="_blank"
-        >
-            <span class="wa-icon">◉</span>
-            Commander
-        </a>
+<div class="nav-links" id="navLinks">
+
+<a href="#accueil">Accueil</a>
+<a href="#approche">Notre approche</a>
+<a href="#services">Services</a>
+<a href="#plantes">Les plantes</a>
+<a href="#produits">Solutions</a>
+
+<a href="#contact" class="nav-cta">
+Nous contacter
+</a>
+
+</div>
 
 
-        <button class="menu-btn" id="menuBtn">
-            ☰
-        </button>
+<button class="menu-btn" id="menuBtn">
+☰
+</button>
 
-    </div>
+</nav>
 
 </header>
 
 
-
-<!-- =========================================================
+<!-- ======================================================
      HERO
-========================================================= -->
+====================================================== -->
+
+<main>
 
 <section class="hero" id="accueil">
 
-    <div class="leaf one"></div>
-    <div class="leaf two"></div>
-    <div class="leaf three"></div>
+<div class="hero-container">
 
+<div class="hero-content reveal">
 
-    <div class="hero-container">
+<div class="eyebrow">
 
-        <div class="hero-content reveal">
+<span class="eyebrow-dot"></span>
 
-            <div class="eyebrow">
-                🌿 Bien-être • Nature • Tradition
-            </div>
+BIEN-ÊTRE • NATURE • ÉQUILIBRE
 
+</div>
 
-            <h1>
-                La santé<br>
-                <span>par le naturel</span>
-            </h1>
+<h1>
+Votre bien-être,
+<br>
+inspiré par
+<em>la nature.</em>
+</h1>
 
+<p class="hero-text">
 
-            <p class="hero-description">
+Découvrez une approche naturelle du bien-être fondée sur
+la richesse des plantes, les traditions et une vision plus
+consciente de la santé au quotidien.
 
-                Découvrez une approche naturelle du bien-être
-                grâce aux plantes et aux savoirs traditionnels.
-                Des solutions soigneusement sélectionnées pour
-                prendre soin de vous au quotidien.
+</p>
 
-            </p>
 
+<div class="hero-actions">
 
-            <div class="hero-actions">
+<a href="#approche" class="btn btn-primary">
+Découvrir notre approche →
+</a>
 
-                <a
-                    class="primary-btn"
-                    href="#produits"
-                >
-                    Découvrir nos produits →
-                </a>
+<a href="#contact" class="btn btn-secondary">
+Parler à un conseiller
+</a>
 
-
-                <a
-                    class="secondary-btn"
-                    href="https://wa.me/237670335411?text=Bonjour%20La%20sant%C3%A9%20par%20le%20naturel%2C%20je%20souhaite%20avoir%20plus%20d'informations."
-                    target="_blank"
-                >
-                    💬 Nous contacter
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-visual reveal">
-
-            <div class="glow"></div>
-
-            <div class="plant-circle">
-
-                <div class="herb"></div>
-                <div class="herb"></div>
-                <div class="herb"></div>
-                <div class="herb"></div>
-                <div class="herb"></div>
-
-                <div class="bowl"></div>
-
-            </div>
-
-
-            <div class="floating-card card-one">
-
-                🌱 100% naturel*
-
-                <small>
-                    Une sélection inspirée des plantes
-                </small>
-
-            </div>
-
-
-            <div class="floating-card card-two">
-
-                💚 Bien-être
-
-                <small>
-                    Prenez soin de vous naturellement
-                </small>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     TRUST
-========================================================= -->
-
-<div class="trust-bar">
-
-    <div class="trust-container">
-
-        <div class="trust-item reveal">
-
-            <div class="trust-icon">
-                🌿
-            </div>
-
-            <strong>Inspiration naturelle</strong>
-
-            <span>
-                Des plantes sélectionnées avec soin
-            </span>
-
-        </div>
-
-
-        <div class="trust-item reveal">
-
-            <div class="trust-icon">
-                ✓
-            </div>
-
-            <strong>Qualité</strong>
-
-            <span>
-                Une attention particulière aux produits
-            </span>
-
-        </div>
-
-
-        <div class="trust-item reveal">
-
-            <div class="trust-icon">
-                ♥
-            </div>
-
-            <strong>Bien-être</strong>
-
-            <span>
-                Une approche globale et naturelle
-            </span>
-
-        </div>
-
-
-        <div class="trust-item reveal">
-
-            <div class="trust-icon">
-                🚚
-            </div>
-
-            <strong>Commande simple</strong>
-
-            <span>
-                Commandez directement sur WhatsApp
-            </span>
-
-        </div>
-
-    </div>
+</div>
 
 </div>
 
 
+<div class="hero-visual reveal">
 
-<!-- =========================================================
-     ABOUT
-========================================================= -->
+<div class="hero-photo">
 
-<section class="about" id="apropos">
+<img
+src="https://images.pexels.com/photos/7615453/pexels-photo-7615453.jpeg?auto=compress&cs=tinysrgb&w=1200"
+alt="Plantes et préparations naturelles"
+>
 
-    <div class="container">
-
-        <div class="about-grid">
-
-            <div class="about-visual reveal">
-
-                <div class="about-circle"></div>
-
-                <div class="about-plant">
-                    🌿
-                </div>
-
-            </div>
+</div>
 
 
-            <div class="about-content reveal">
+<div class="floating-card">
 
-                <div class="section-tag">
-                    Notre philosophie
-                </div>
+<small>Notre philosophie</small>
 
-                <h2>
-                    La nature au cœur de votre bien-être.
-                </h2>
+<strong>
+Retourner à l'essentiel.
+</strong>
 
-                <p>
+<small>
+Des solutions inspirées du monde végétal.
+</small>
 
-                    <strong>La santé par le naturel</strong>
-                    met en avant les plantes et les traditions
-                    naturelles comme source d'inspiration pour
-                    prendre soin de soi.
-
-                </p>
-
-                <p>
-
-                    Notre objectif est simple :
-                    vous permettre de découvrir des produits
-                    naturels dans une expérience moderne,
-                    simple et accessible.
-
-                </p>
+</div>
 
 
-                <ul class="check-list">
+<svg class="leaf-decoration" viewBox="0 0 200 300">
 
-                    <li>
-                        <span class="check">✓</span>
-                        Sélection orientée vers le naturel
-                    </li>
+<path
+d="M100 290C95 210 102 130 160 30"
+stroke="#164d38"
+stroke-width="5"
+fill="none"/>
 
-                    <li>
-                        <span class="check">✓</span>
-                        Commande rapide via WhatsApp
-                    </li>
+<path
+d="M105 230C65 220 35 190 30 150C70 150 100 175 105 230Z"
+fill="#164d38"/>
 
-                    <li>
-                        <span class="check">✓</span>
-                        Service accessible au Cameroun
-                    </li>
+<path
+d="M105 175C145 170 170 145 178 105C140 105 112 130 105 175Z"
+fill="#164d38"/>
 
-                    <li>
-                        <span class="check">✓</span>
-                        Une approche centrée sur le bien-être
-                    </li>
+</svg>
 
-                </ul>
+</div>
 
-
-                <a
-                    class="primary-btn"
-                    href="#produits"
-                >
-                    Voir nos produits
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
+<!-- ======================================================
+     TRUST
+====================================================== -->
 
-<!-- =========================================================
-     PRODUCTS
-========================================================= -->
+<div class="trust">
+
+<div class="trust-inner">
+
+<div class="trust-item">
+<span>✦</span>
+Approche naturelle
+</div>
+
+<div class="trust-item">
+<span>✦</span>
+Inspiration botanique
+</div>
+
+<div class="trust-item">
+<span>✦</span>
+Conseils personnalisés
+</div>
+
+<div class="trust-item">
+<span>✦</span>
+Accompagnement humain
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ======================================================
+     APPROCHE
+====================================================== -->
+
+<section class="intro" id="approche">
+
+<div class="section-container">
+
+<div class="intro-grid">
+
+<div class="intro-image reveal">
+
+<img
+src="https://images.pexels.com/photos/6694195/pexels-photo-6694195.jpeg?auto=compress&cs=tinysrgb&w=1200"
+alt="Plantes médicinales naturelles"
+>
+
+<div class="intro-badge">
+
+<strong>
+La force du végétal
+</strong>
+
+<span>
+Une approche inspirée de la richesse botanique.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="reveal">
+
+<div class="section-label">
+Notre vision
+</div>
+
+<h2 class="section-title">
+La nature possède une histoire à nous raconter.
+</h2>
+
+<p class="section-text">
+
+Depuis des générations, les plantes occupent une place
+importante dans les traditions de bien-être à travers
+le monde.
+
+</p>
+
+<p class="section-text">
+
+Notre objectif est de rendre cette richesse plus accessible
+tout en privilégiant une présentation claire, responsable
+et moderne des solutions naturelles.
+
+</p>
+
+<br>
+
+<a href="#services" class="btn btn-primary">
+Explorer nos services →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     SERVICES
+====================================================== -->
+
+<section class="services" id="services">
+
+<div class="section-container">
+
+<div class="section-header reveal">
+
+<div class="section-label">
+Ce que nous proposons
+</div>
+
+<h2 class="section-title">
+Une approche globale du bien-être.
+</h2>
+
+<p class="section-text">
+Des services pensés pour vous aider à mieux comprendre
+les possibilités offertes par le monde naturel.
+</p>
+
+</div>
+
+
+<div class="service-grid">
+
+<div class="service-card reveal">
+
+<div class="service-icon">🌿</div>
+
+<h3>Conseil naturel</h3>
+
+<p>
+Échangez avec nous pour mieux comprendre les différentes
+approches naturelles et choisir une solution adaptée
+à votre situation.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">🍃</div>
+
+<h3>Phytothérapie</h3>
+
+<p>
+Découvrez les plantes traditionnellement utilisées dans
+différentes cultures et leurs usages dans les routines
+de bien-être.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">☕</div>
+
+<h3>Infusions & plantes</h3>
+
+<p>
+Une sélection de plantes et préparations destinées à
+accompagner vos habitudes quotidiennes.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">🪴</div>
+
+<h3>Éducation</h3>
+
+<p>
+Apprenez à mieux connaître les plantes, leurs usages
+traditionnels et les précautions importantes.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">✨</div>
+
+<h3>Bien-être quotidien</h3>
+
+<p>
+Des conseils simples pour intégrer progressivement
+des habitudes naturelles dans votre quotidien.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">🤝</div>
+
+<h3>Accompagnement</h3>
+
+<p>
+Un contact humain pour répondre à vos questions et
+vous orienter vers les informations pertinentes.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     BOTANICAL
+====================================================== -->
+
+<section class="botanical" id="plantes">
+
+<div class="section-container">
+
+<div class="botanical-grid">
+
+<div class="botanical-image reveal">
+
+<img
+src="https://images.pexels.com/photos/16757214/pexels-photo-16757214.jpeg?auto=compress&cs=tinysrgb&w=1200"
+alt="Feuilles et plantes"
+>
+
+</div>
+
+
+<div class="botanical-content reveal">
+
+<div class="section-label">
+Le monde végétal
+</div>
+
+<h2 class="section-title">
+Des plantes.
+<br>
+Des traditions.
+<br>
+Une nouvelle façon de prendre soin de soi.
+</h2>
+
+<p class="section-text">
+
+La biodiversité végétale offre une immense richesse.
+Nous nous intéressons aux plantes utilisées traditionnellement
+dans les différentes cultures et à la manière responsable
+de les intégrer au quotidien.
+
+</p>
+
+
+<div class="botanical-list">
+
+<div class="botanical-item">
+
+<div class="botanical-check">✓</div>
+
+<div>
+
+<h4>Sélection attentive</h4>
+
+<p>
+Nous privilégions une information claire sur les plantes
+et leurs usages traditionnels.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="botanical-item">
+
+<div class="botanical-check">✓</div>
+
+<div>
+
+<h4>Tradition & modernité</h4>
+
+<p>
+Nous associons savoir traditionnel et présentation
+moderne de l'information.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="botanical-item">
+
+<div class="botanical-check">✓</div>
+
+<div>
+
+<h4>Approche responsable</h4>
+
+<p>
+Les solutions naturelles ne remplacent pas automatiquement
+un avis ou un traitement médical.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     PRODUITS
+====================================================== -->
 
 <section class="products" id="produits">
 
-    <div class="container">
+<div class="section-container">
 
-        <div class="section-heading reveal">
+<div class="section-header reveal">
 
-            <div class="section-tag">
-                Notre sélection
-            </div>
+<div class="section-label">
+Nos solutions naturelles
+</div>
 
-            <h2>
-                Nos produits naturels
-            </h2>
+<h2 class="section-title">
+Des produits inspirés par la nature.
+</h2>
 
-            <p>
-                Découvrez notre sélection de produits inspirés
-                de la richesse des plantes.
-            </p>
+<p class="section-text">
+Une présentation simple et élégante pour découvrir
+nos différentes catégories.
+</p>
 
-        </div>
+</div>
 
 
-        <div class="product-grid">
+<div class="product-grid">
 
 
-            <!-- PRODUCT 1 -->
+<div class="product-card reveal">
 
-            <article class="product-card reveal">
+<div class="product-image">
 
-                <div class="product-image">
-                    <div class="product-symbol">🍃</div>
-                </div>
+<img
+src="https://images.pexels.com/photos/6694178/pexels-photo-6694178.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Huiles et plantes"
+>
 
-                <div class="product-body">
+</div>
 
-                    <h3>
-                        Tisane bien-être
-                    </h3>
+<div class="product-info">
 
-                    <p>
-                        Une infusion de plantes pensée pour
-                        accompagner vos moments de détente.
-                    </p>
+<div class="product-tag">
+Botanique
+</div>
 
-                    <div class="product-footer">
+<h3>Huiles naturelles</h3>
 
-                        <span class="price">
-                            Sur commande
-                        </span>
+<p>
+Des préparations inspirées des plantes aromatiques
+pour accompagner les routines de bien-être.
+</p>
 
-                        <button
-                            class="order-small"
-                            data-product="Tisane bien-être"
-                        >
-                            Commander
-                        </button>
+<a
+class="btn btn-primary"
+href="https://wa.me/237670335411?text=Bonjour%20La%20Santé%20par%20le%20Naturel%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20vos%20huiles%20naturelles."
+target="_blank">
 
-                    </div>
+Découvrir
 
-                </div>
+</a>
 
-            </article>
+</div>
 
+</div>
 
 
-            <!-- PRODUCT 2 -->
+<div class="product-card reveal">
 
-            <article class="product-card reveal">
+<div class="product-image">
 
-                <div class="product-image">
-                    <div class="product-symbol">🌿</div>
-                </div>
+<img
+src="https://images.pexels.com/photos/6694195/pexels-photo-6694195.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Herbes naturelles"
+>
 
-                <div class="product-body">
+</div>
 
-                    <h3>
-                        Sirop naturel
-                    </h3>
+<div class="product-info">
 
-                    <p>
-                        Une préparation inspirée des plantes
-                        traditionnellement utilisées pour le bien-être.
-                    </p>
+<div class="product-tag">
+Plantes
+</div>
 
-                    <div class="product-footer">
+<h3>Plantes & infusions</h3>
 
-                        <span class="price">
-                            Sur commande
-                        </span>
+<p>
+Des plantes sélectionnées pour créer des infusions
+et accompagner vos moments de détente.
+</p>
 
-                        <button
-                            class="order-small"
-                            data-product="Sirop naturel"
-                        >
-                            Commander
-                        </button>
+<a
+class="btn btn-primary"
+href="https://wa.me/237670335411?text=Bonjour%20La%20Santé%20par%20le%20Naturel%2C%20je%20souhaite%20découvrir%20vos%20plantes%20et%20infusions."
+target="_blank">
 
-                    </div>
+Découvrir
 
-                </div>
+</a>
 
-            </article>
+</div>
 
+</div>
 
 
-            <!-- PRODUCT 3 -->
+<div class="product-card reveal">
 
-            <article class="product-card reveal">
+<div class="product-image">
 
-                <div class="product-image">
-                    <div class="product-symbol">🌱</div>
-                </div>
+<img
+src="https://images.pexels.com/photos/7615453/pexels-photo-7615453.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Remèdes naturels"
+>
 
-                <div class="product-body">
+</div>
 
-                    <h3>
-                        Huile végétale
-                    </h3>
+<div class="product-info">
 
-                    <p>
-                        Une huile naturelle destinée aux routines
-                        de soin et de bien-être.
-                    </p>
+<div class="product-tag">
+Bien-être
+</div>
 
-                    <div class="product-footer">
+<h3>Solutions naturelles</h3>
 
-                        <span class="price">
-                            Sur commande
-                        </span>
+<p>
+Découvrez notre sélection et demandez conseil avant
+toute utilisation.
+</p>
 
-                        <button
-                            class="order-small"
-                            data-product="Huile végétale"
-                        >
-                            Commander
-                        </button>
+<a
+class="btn btn-primary"
+href="https://wa.me/237670335411?text=Bonjour%20La%20Santé%20par%20le%20Naturel%2C%20je%20souhaite%20connaître%20vos%20solutions%20naturelles."
+target="_blank">
 
-                    </div>
+Découvrir
 
-                </div>
+</a>
 
-            </article>
+</div>
 
+</div>
 
 
-            <!-- PRODUCT 4 -->
+</div>
 
-            <article class="product-card reveal">
-
-                <div class="product-image">
-                    <div class="product-symbol">🌼</div>
-                </div>
-
-                <div class="product-body">
-
-                    <h3>
-                        Baume naturel
-                    </h3>
-
-                    <p>
-                        Un produit inspiré des ingrédients naturels
-                        pour accompagner votre routine de soin.
-                    </p>
-
-                    <div class="product-footer">
-
-                        <span class="price">
-                            Sur commande
-                        </span>
-
-                        <button
-                            class="order-small"
-                            data-product="Baume naturel"
-                        >
-                            Commander
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-
-<!-- =========================================================
-     BENEFITS
-========================================================= -->
-
-<section class="benefits" id="bienfaits">
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-
-            <div class="section-tag">
-                Pourquoi nous choisir ?
-            </div>
-
-            <h2>
-                Une expérience naturelle et moderne.
-            </h2>
-
-            <p>
-                Nous combinons la richesse des plantes,
-                la simplicité du digital et une expérience
-                client pensée pour vous.
-            </p>
-
-        </div>
-
-
-        <div class="benefit-grid">
-
-
-            <div class="benefit-card reveal">
-
-                <div class="benefit-icon">
-                    🌿
-                </div>
-
-                <h3>
-                    L'inspiration des plantes
-                </h3>
-
-                <p>
-                    Nous valorisons les plantes et les
-                    connaissances traditionnelles liées
-                    au bien-être naturel.
-                </p>
-
-            </div>
-
-
-            <div class="benefit-card reveal">
-
-                <div class="benefit-icon">
-                    💚
-                </div>
-
-                <h3>
-                    Une approche globale
-                </h3>
-
-                <p>
-                    Le bien-être ne se résume pas à un seul
-                    produit. Nous encourageons une approche
-                    équilibrée et responsable.
-                </p>
-
-            </div>
-
-
-            <div class="benefit-card reveal">
-
-                <div class="benefit-icon">
-                    📱
-                </div>
-
-                <h3>
-                    Commande par WhatsApp
-                </h3>
-
-                <p>
-                    Pas besoin de créer un compte.
-                    Choisissez votre produit et contactez-nous
-                    directement sur WhatsApp.
-                </p>
-
-            </div>
-
-
-            <div class="benefit-card reveal">
-
-                <div class="benefit-icon">
-                    🔎
-                </div>
-
-                <h3>
-                    Transparence
-                </h3>
-
-                <p>
-                    Nous voulons que vous sachiez ce que vous
-                    commandez et comment utiliser chaque produit
-                    de manière responsable.
-                </p>
-
-            </div>
-
-
-            <div class="benefit-card reveal">
-
-                <div class="benefit-icon">
-                    🌍
-                </div>
-
-                <h3>
-                    Pensé pour le Cameroun
-                </h3>
-
-                <p>
-                    Une expérience digitale adaptée aux habitudes
-                    de commande locales.
-                </p>
-
-            </div>
-
-
-            <div class="benefit-card reveal">
-
-                <div class="benefit-icon">
-                    🤝
-                </div>
-
-                <h3>
-                    Relation humaine
-                </h3>
-
-                <p>
-                    Notre canal WhatsApp permet d'échanger
-                    directement avant de passer commande.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
+<!-- ======================================================
      PROCESS
-========================================================= -->
+====================================================== -->
 
 <section class="process">
 
-    <div class="container">
+<div class="section-container">
 
-        <div class="section-heading reveal">
+<div class="section-header reveal">
 
-            <div class="section-tag">
-                Comment commander ?
-            </div>
+<div class="section-label">
+Comment ça fonctionne
+</div>
 
-            <h2>
-                Simple. Rapide. Direct.
-            </h2>
+<h2 class="section-title">
+Simple. Humain. Naturel.
+</h2>
 
-            <p>
-                Trois étapes suffisent pour nous contacter
-                et passer votre commande.
-            </p>
-
-        </div>
+</div>
 
 
-        <div class="process-grid">
+<div class="process-grid">
+
+<div class="process-card reveal">
+
+<div class="process-number">
+01
+</div>
+
+<h3>Vous nous contactez</h3>
+
+<p>
+Expliquez-nous votre besoin ou votre question.
+</p>
+
+</div>
 
 
-            <div class="step reveal">
+<div class="process-card reveal">
 
-                <div class="step-number">
-                    01
-                </div>
+<div class="process-number">
+02
+</div>
 
-                <h3>
-                    Choisissez
-                </h3>
+<h3>Nous échangeons</h3>
 
-                <p>
-                    Parcourez notre sélection et choisissez
-                    le produit qui vous intéresse.
-                </p>
+<p>
+Nous vous apportons les informations disponibles
+et vous orientons.
+</p>
 
-            </div>
+</div>
 
 
-            <div class="step reveal">
+<div class="process-card reveal">
 
-                <div class="step-number">
-                    02
-                </div>
+<div class="process-number">
+03
+</div>
 
-                <h3>
-                    Contactez-nous
-                </h3>
+<h3>Vous choisissez</h3>
 
-                <p>
-                    Cliquez sur le bouton WhatsApp et envoyez
-                    automatiquement votre demande.
-                </p>
+<p>
+Vous découvrez les solutions correspondant
+à votre demande.
+</p>
 
-            </div>
+</div>
 
 
-            <div class="step reveal">
+<div class="process-card reveal">
 
-                <div class="step-number">
-                    03
-                </div>
+<div class="process-number">
+04
+</div>
 
-                <h3>
-                    Finalisez
-                </h3>
+<h3>Vous êtes accompagné</h3>
 
-                <p>
-                    Notre équipe échange avec vous pour
-                    confirmer les détails de votre commande.
-                </p>
+<p>
+Notre équipe reste disponible pour vos questions.
+</p>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
 
+<!-- ======================================================
+     TESTIMONIAL
+====================================================== -->
 
-<!-- =========================================================
-     TESTIMONIALS
-========================================================= -->
+<section class="testimonial">
 
-<section class="testimonials" id="temoignages">
+<div class="section-container">
 
-    <div class="container">
+<div class="quote reveal">
 
-        <div class="section-heading reveal">
+<div class="quote-mark">
+“
+</div>
 
-            <div class="section-tag">
-                Témoignages
-            </div>
+<p>
+« Revenir à la nature, ce n'est pas revenir en arrière.
+C'est redécouvrir ce que nous avons parfois oublié. »
+</p>
 
-            <h2>
-                Ils apprécient l'expérience.
-            </h2>
+<small>
+La Santé par le Naturel
+</small>
 
-            <p>
-                Des retours clients à utiliser uniquement
-                lorsqu'ils correspondent à de vrais témoignages.
-            </p>
+</div>
 
-        </div>
-
-
-        <div class="testimonial-grid">
-
-
-            <div class="testimonial reveal">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-                <p>
-                    « J'ai particulièrement apprécié la simplicité
-                    de la commande et les échanges sur WhatsApp. »
-                </p>
-
-                <div class="person">
-
-                    <div class="avatar">
-                        A
-                    </div>
-
-                    <div>
-                        <strong>
-                            Client A.
-                        </strong>
-
-                        <span>
-                            Client vérifié
-                        </span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="testimonial reveal">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-                <p>
-                    « Une présentation professionnelle et une
-                    expérience de commande très simple. »
-                </p>
-
-                <div class="person">
-
-                    <div class="avatar">
-                        M
-                    </div>
-
-                    <div>
-                        <strong>
-                            Client M.
-                        </strong>
-
-                        <span>
-                            Client vérifié
-                        </span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="testimonial reveal">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-                <p>
-                    « J'aime le concept autour des plantes et
-                    le fait de pouvoir poser mes questions avant
-                    de commander. »
-                </p>
-
-                <div class="person">
-
-                    <div class="avatar">
-                        S
-                    </div>
-
-                    <div>
-                        <strong>
-                            Client S.
-                        </strong>
-
-                        <span>
-                            Client vérifié
-                        </span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-
-<!-- =========================================================
-     CTA
-========================================================= -->
-
-<section class="cta">
-
-    <div class="cta-container reveal">
-
-        <div>
-
-            <h2>
-                Votre bien-être,<br>
-                naturellement.
-            </h2>
-
-            <p>
-                Une question sur un produit ?
-                Contactez directement notre équipe.
-            </p>
-
-        </div>
-
-
-        <a
-            class="whatsapp-btn"
-            href="https://wa.me/237670335411?text=Bonjour%20La%20sant%C3%A9%20par%20le%20naturel%2C%20je%20souhaite%20passer%20une%20commande."
-            target="_blank"
-        >
-            💬 Commander sur WhatsApp
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
+<!-- ======================================================
      CONTACT
-========================================================= -->
+====================================================== -->
 
 <section class="contact" id="contact">
 
-    <div class="container">
+<div class="contact-inner reveal">
 
-        <div class="contact-box reveal">
+<div class="section-label" style="color:#9ec5a3;">
+Parlons ensemble
+</div>
 
-            <div class="section-tag">
-                Contact
-            </div>
+<h2>
+Votre prochaine étape commence ici.
+</h2>
 
-            <h2>
-                Parlons de votre besoin.
-            </h2>
+<p>
 
-            <p>
-                Pour connaître les produits disponibles,
-                leurs caractéristiques, les prix ou les
-                modalités de commande, contactez-nous directement.
-            </p>
+Une question sur nos produits, nos plantes ou notre
+approche ? Contactez-nous directement sur WhatsApp.
 
-            <a
-                class="phone"
-                href="https://wa.me/237670335411"
-                target="_blank"
-            >
-                +237 670 335 411
-            </a>
+</p>
 
-            <a
-                class="whatsapp-btn"
-                href="https://wa.me/237670335411?text=Bonjour%20La%20sant%C3%A9%20par%20le%20naturel."
-                target="_blank"
-            >
-                💬 Ouvrir WhatsApp
-            </a>
+<a
+href="https://wa.me/237670335411?text=Bonjour%20La%20Santé%20par%20le%20Naturel%2C%20je%20souhaite%20avoir%20plus%20d'informations."
+target="_blank"
+class="btn whatsapp-btn">
 
-        </div>
+💬 Écrire sur WhatsApp
 
-    </div>
+</a>
+
+</div>
 
 </section>
 
+</main>
 
 
-<!-- =========================================================
+<!-- ======================================================
      FOOTER
-========================================================= -->
+====================================================== -->
 
 <footer>
 
-    <div class="footer-grid">
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<a href="#accueil" class="logo" style="color:white;">
+
+<div class="logo-mark">
+
+<svg viewBox="0 0 40 40" fill="none">
+
+<path
+d="M20 34C20 25 19 18 12 11"
+stroke="#ffffff"
+stroke-width="2"
+stroke-linecap="round"/>
+
+<path
+d="M20 26C26 24 30 19 30 13C24 13 20 17 20 23"
+fill="#9bc69d"/>
+
+<path
+d="M18 21C13 20 9 16 10 11C15 11 19 14 18 21"
+fill="#d7ead7"/>
+
+</svg>
+
+</div>
+
+La Santé par le Naturel
+
+</a>
+
+<p>
+Une approche moderne et responsable du bien-être
+inspirée par la richesse du monde végétal.
+</p>
+
+</div>
 
 
-        <div class="footer-brand">
+<div>
 
-            <a href="#accueil" class="logo">
+<div class="footer-title">
+Navigation
+</div>
 
-                <div class="logo-icon"></div>
+<div class="footer-links">
 
-                <div class="logo-text">
-                    <strong>La santé</strong>
-                    <span>par le naturel</span>
-                </div>
+<a href="#accueil">Accueil</a>
+<a href="#approche">Notre approche</a>
+<a href="#services">Services</a>
+<a href="#plantes">Les plantes</a>
+<a href="#produits">Solutions</a>
 
-            </a>
+</div>
 
-            <p>
-                Une approche moderne du bien-être inspirée
-                de la richesse des plantes et des traditions naturelles.
-            </p>
-
-        </div>
+</div>
 
 
-        <div>
+<div>
 
-            <h4>
-                Navigation
-            </h4>
+<div class="footer-title">
+Contact
+</div>
 
-            <ul class="footer-links">
+<div class="footer-links">
 
-                <li>
-                    <a href="#accueil">
-                        Accueil
-                    </a>
-                </li>
+<a
+href="https://wa.me/237670335411"
+target="_blank">
+WhatsApp
+</a>
 
-                <li>
-                    <a href="#apropos">
-                        À propos
-                    </a>
-                </li>
+<a href="#contact">
+Demander conseil
+</a>
 
-                <li>
-                    <a href="#produits">
-                        Produits
-                    </a>
-                </li>
+</div>
 
-            </ul>
+</div>
 
-        </div>
+</div>
 
 
-        <div>
+<div class="footer-bottom">
 
-            <h4>
-                Découvrir
-            </h4>
+<span>
+© 2026 La Santé par le Naturel
+</span>
 
-            <ul class="footer-links">
+<span>
+Bien-être • Nature • Équilibre
+</span>
 
-                <li>
-                    <a href="#bienfaits">
-                        Bienfaits
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#temoignages">
-                        Témoignages
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#contact">
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <div>
-
-            <h4>
-                Contact
-            </h4>
-
-            <ul class="footer-links">
-
-                <li>
-                    <a
-                        href="https://wa.me/237670335411"
-                        target="_blank"
-                    >
-                        WhatsApp
-                    </a>
-                </li>
-
-                <li>
-                    <a href="tel:+237670335411">
-                        +237 670 335 411
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-
-    <div class="copyright">
-
-        <span>
-            © 2026 La santé par le naturel. Tous droits réservés.
-        </span>
-
-        <span>
-            🌿 Nature • Bien-être • Tradition
-        </span>
-
-    </div>
+</div>
 
 </footer>
 
 
-
-<!-- =========================================================
-     FLOATING WHATSAPP
-========================================================= -->
+<!-- ======================================================
+     WHATSAPP FLOATING
+====================================================== -->
 
 <a
-    class="whatsapp-floating"
-    href="https://wa.me/237670335411?text=Bonjour%20La%20sant%C3%A9%20par%20le%20naturel%2C%20je%20souhaite%20passer%20une%20commande."
-    target="_blank"
-    aria-label="Commander sur WhatsApp"
->
-    ☎
+href="https://wa.me/237670335411?text=Bonjour%20La%20Santé%20par%20le%20Naturel%2C%20je%20viens%20de%20votre%20site."
+target="_blank"
+class="whatsapp-float"
+aria-label="WhatsApp">
+
+⌕
 </a>
-
-
-
-<!-- =========================================================
-     ORDER MODAL
-========================================================= -->
-
-<div class="modal" id="orderModal">
-
-    <div class="modal-box">
-
-        <button
-            class="close-modal"
-            id="closeModal"
-        >
-            ×
-        </button>
-
-
-        <h2>
-            Passer commande
-        </h2>
-
-        <p>
-            Votre demande sera envoyée directement sur WhatsApp.
-        </p>
-
-
-        <div class="order-product" id="selectedProduct">
-            Produit sélectionné
-        </div>
-
-
-        <div class="quantity">
-
-            <label for="quantity">
-                Quantité
-            </label>
-
-            <input
-                type="number"
-                id="quantity"
-                min="1"
-                value="1"
-            >
-
-        </div>
-
-
-        <button
-            class="modal-whatsapp"
-            id="sendOrder"
-        >
-            💬 Envoyer la commande sur WhatsApp
-        </button>
-
-    </div>
-
-</div>
-
 
 
 <script>
 
-    /* =========================================================
-       MENU MOBILE
-    ========================================================= */
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
 
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
+const header = document.getElementById("header");
 
-    menuBtn.addEventListener("click", () => {
+window.addEventListener("scroll",()=>{
 
-        navLinks.classList.toggle("active");
+    if(window.scrollY > 50){
 
-    });
+        header.classList.add("scrolled");
 
+    }else{
 
-    /* Fermer le menu après clic */
+        header.classList.remove("scrolled");
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
+    }
 
-        link.addEventListener("click", () => {
-
-            navLinks.classList.remove("active");
-
-        });
-
-    });
+});
 
 
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-    /* =========================================================
-       ORDER MODAL
-    ========================================================= */
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
 
-    const modal = document.getElementById("orderModal");
+menuBtn.addEventListener("click",()=>{
 
-    const closeModal = document.getElementById("closeModal");
+    navLinks.classList.toggle("active");
 
-    const selectedProduct =
-        document.getElementById("selectedProduct");
-
-    const quantity =
-        document.getElementById("quantity");
-
-    const sendOrder =
-        document.getElementById("sendOrder");
+});
 
 
-    let currentProduct = "";
+document.querySelectorAll(".nav-links a").forEach(link=>{
 
+    link.addEventListener("click",()=>{
 
-    document.querySelectorAll(".order-small").forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            currentProduct =
-                button.dataset.product;
-
-            selectedProduct.textContent =
-                currentProduct;
-
-            quantity.value = 1;
-
-            modal.classList.add("active");
-
-        });
+        navLinks.classList.remove("active");
 
     });
 
-
-    closeModal.addEventListener("click", () => {
-
-        modal.classList.remove("active");
-
-    });
+});
 
 
-    modal.addEventListener("click", event => {
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
-        if (event.target === modal) {
+const revealElements =
+document.querySelectorAll(".reveal");
 
-            modal.classList.remove("active");
+const observer = new IntersectionObserver(
+
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("visible");
+
+            observer.unobserve(entry.target);
 
         }
 
     });
 
+},
 
-    /* =========================================================
-       ENVOI WHATSAPP
-    ========================================================= */
+{
+    threshold:.12
+}
 
-    sendOrder.addEventListener("click", () => {
-
-        let qty = parseInt(quantity.value);
-
-        if (!qty || qty < 1) {
-            qty = 1;
-        }
+);
 
 
-        const message =
-            `Bonjour La santé par le naturel 🌿
+revealElements.forEach(el=>{
 
-Je souhaite passer une commande.
+    observer.observe(el);
 
-Produit : ${currentProduct}
-Quantité : ${qty}
-
-Merci de m'indiquer le prix et les modalités de livraison.`;
+});
 
 
-        const whatsappURL =
-            "https://wa.me/237670335411?text=" +
-            encodeURIComponent(message);
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
 
+document.querySelectorAll("img").forEach(img=>{
 
-        window.open(
-            whatsappURL,
-            "_blank"
-        );
+    img.addEventListener("error",()=>{
+
+        img.style.display="none";
+
+        img.parentElement.style.background =
+        "linear-gradient(135deg,#164d38,#789d7d)";
 
     });
 
-
-
-    /* =========================================================
-       SCROLL REVEAL
-    ========================================================= */
-
-    const revealElements =
-        document.querySelectorAll(".reveal");
-
-
-    const observer =
-        new IntersectionObserver(
-
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add("visible");
-
-                        observer.unobserve(entry.target);
-
-                    }
-
-                });
-
-            },
-
-            {
-                threshold: 0.12
-            }
-
-        );
-
-
-    revealElements.forEach(element => {
-
-        observer.observe(element);
-
-    });
-
-
-
-    /* =========================================================
-       FERMER MODAL AVEC ESC
-    ========================================================= */
-
-    document.addEventListener("keydown", event => {
-
-        if (event.key === "Escape") {
-
-            modal.classList.remove("active");
-
-        }
-
-    });
-
+});
 
 </script>
 
