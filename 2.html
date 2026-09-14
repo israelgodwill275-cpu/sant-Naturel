@@ -1,0 +1,3570 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>La Santé par le Naturel | L'essentiel vient de la nature</title>
+
+<meta name="description"
+content="La Santé par le Naturel — une approche moderne du bien-être inspirée du monde végétal.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+
+    --forest:#102d24;
+    --forest-2:#183d30;
+
+    --sage:#8da993;
+    --sage-light:#dfe9df;
+
+    --cream:#f6f3eb;
+    --cream-2:#eeeadf;
+
+    --white:#fff;
+
+    --black:#111715;
+
+    --gold:#b9975b;
+
+    --gray:#78837d;
+
+    --line:rgba(16,45,36,.12);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--cream);
+    color:var(--forest);
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+
+/* =========================================================
+   CURSOR DECORATION
+========================================================= */
+
+.cursor-glow{
+
+    position:fixed;
+
+    width:250px;
+    height:250px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(141,169,147,.13),
+        transparent 70%
+    );
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    z-index:-1;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    transition:.4s;
+
+}
+
+header.scrolled{
+
+    background:rgba(246,243,235,.82);
+
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid var(--line);
+
+}
+
+
+.nav{
+
+    height:88px;
+
+    max-width:1350px;
+
+    margin:auto;
+
+    padding:0 35px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-weight:800;
+
+    font-size:17px;
+
+    letter-spacing:-.5px;
+
+}
+
+
+.logo-symbol{
+
+    width:43px;
+    height:43px;
+
+    background:var(--forest);
+
+    border-radius:13px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.logo-symbol svg{
+
+    width:30px;
+    height:30px;
+
+}
+
+
+.logo-text span{
+
+    color:#7f9a83;
+
+}
+
+
+.navigation{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:34px;
+
+}
+
+
+.navigation a{
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#43584d;
+
+    transition:.3s;
+
+}
+
+
+.navigation a:hover{
+
+    color:var(--gold);
+
+}
+
+
+.nav-button{
+
+    background:var(--forest);
+
+    color:white!important;
+
+    padding:13px 20px;
+
+    border-radius:50px;
+
+}
+
+
+.menu{
+
+    display:none;
+
+    width:43px;
+    height:43px;
+
+    border:1px solid var(--line);
+
+    background:transparent;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:100vh;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+
+.hero-background{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(141,169,147,.28),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(185,151,91,.12),
+            transparent 25%
+        );
+
+}
+
+
+.hero-grid{
+
+    max-width:1350px;
+
+    width:100%;
+
+    margin:auto;
+
+    padding:150px 35px 80px;
+
+    display:grid;
+
+    grid-template-columns:.9fr 1.1fr;
+
+    gap:80px;
+
+    align-items:center;
+
+}
+
+
+.hero-left{
+
+    position:relative;
+
+    z-index:3;
+
+}
+
+
+.mini-label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#75917b;
+
+    text-transform:uppercase;
+
+    font-size:11px;
+
+    letter-spacing:.18em;
+
+    font-weight:800;
+
+    margin-bottom:25px;
+
+}
+
+
+.mini-label::before{
+
+    content:"";
+
+    width:30px;
+
+    height:1px;
+
+    background:var(--sage);
+
+}
+
+
+.hero h1{
+
+    font-family:"Playfair Display",serif;
+
+    font-weight:500;
+
+    font-size:clamp(55px,7vw,100px);
+
+    line-height:.94;
+
+    letter-spacing:-4px;
+
+    max-width:760px;
+
+}
+
+
+.hero h1 em{
+
+    color:#7e9d83;
+
+    font-style:italic;
+
+}
+
+
+.hero-description{
+
+    margin-top:30px;
+
+    max-width:540px;
+
+    color:var(--gray);
+
+    font-size:16px;
+
+    line-height:1.8;
+
+}
+
+
+.hero-actions{
+
+    margin-top:36px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.primary{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    background:var(--forest);
+
+    color:white;
+
+    border-radius:50px;
+
+    padding:16px 23px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+
+.primary:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 20px 40px rgba(16,45,36,.18);
+
+}
+
+
+.secondary{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:15px 20px;
+
+    border:1px solid var(--line);
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+
+.secondary:hover{
+
+    background:white;
+
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.hero-right{
+
+    height:650px;
+
+    position:relative;
+
+}
+
+
+.hero-image-main{
+
+    position:absolute;
+
+    right:0;
+
+    top:0;
+
+    width:78%;
+
+    height:590px;
+
+    border-radius:240px 240px 25px 25px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 40px 100px rgba(16,45,36,.16);
+
+}
+
+
+.hero-image-main img{
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.hero-image-main::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 50%,
+            rgba(16,45,36,.35)
+        );
+
+}
+
+
+.hero-small-image{
+
+    position:absolute;
+
+    width:235px;
+
+    height:270px;
+
+    left:0;
+
+    bottom:25px;
+
+    border-radius:120px 120px 20px 20px;
+
+    overflow:hidden;
+
+    border:10px solid var(--cream);
+
+    box-shadow:0 30px 60px rgba(16,45,36,.15);
+
+    z-index:3;
+
+}
+
+
+.hero-small-image img{
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.hero-floating{
+
+    position:absolute;
+
+    z-index:5;
+
+    right:15px;
+
+    bottom:25px;
+
+    width:210px;
+
+    padding:20px;
+
+    background:rgba(255,255,255,.84);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.7);
+
+    border-radius:20px;
+
+    box-shadow:0 25px 60px rgba(16,45,36,.14);
+
+}
+
+
+.hero-floating .number{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:30px;
+
+    color:var(--forest);
+
+}
+
+
+.hero-floating p{
+
+    font-size:11px;
+
+    color:var(--gray);
+
+    line-height:1.6;
+
+    margin-top:4px;
+
+}
+
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee{
+
+    background:var(--forest);
+
+    color:white;
+
+    overflow:hidden;
+
+    padding:19px 0;
+
+}
+
+
+.marquee-track{
+
+    display:flex;
+
+    width:max-content;
+
+    animation:marquee 25s linear infinite;
+
+}
+
+
+.marquee-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+    padding-right:28px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:20px;
+
+    font-style:italic;
+
+}
+
+
+.marquee-item span{
+
+    color:#8eaa91;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-style:normal;
+
+}
+
+
+@keyframes marquee{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.section{
+
+    padding:130px 35px;
+
+}
+
+
+.container{
+
+    max-width:1250px;
+
+    margin:auto;
+
+}
+
+
+.section-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:40px;
+
+    margin-bottom:65px;
+
+}
+
+
+.section-number{
+
+    color:#91a38f;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:.16em;
+
+}
+
+
+.section-title{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(43px,5vw,70px);
+
+    font-weight:500;
+
+    line-height:1;
+
+    letter-spacing:-2px;
+
+    max-width:730px;
+
+}
+
+
+.section-intro{
+
+    color:var(--gray);
+
+    max-width:380px;
+
+    line-height:1.8;
+
+    font-size:14px;
+
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.story{
+
+    background:#fffdf8;
+
+}
+
+
+.story-layout{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:90px;
+
+    align-items:center;
+
+}
+
+
+.story-visual{
+
+    position:relative;
+
+    height:620px;
+
+}
+
+
+.story-main{
+
+    width:78%;
+
+    height:570px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+.story-main img{
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.story-card{
+
+    position:absolute;
+
+    right:0;
+
+    bottom:20px;
+
+    width:270px;
+
+    padding:25px;
+
+    background:var(--forest);
+
+    color:white;
+
+    border-radius:18px;
+
+    box-shadow:0 25px 60px rgba(16,45,36,.2);
+
+}
+
+
+.story-card .leaf{
+
+    font-size:30px;
+
+    margin-bottom:18px;
+
+}
+
+
+.story-card h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:26px;
+
+    font-weight:500;
+
+}
+
+
+.story-card p{
+
+    color:#b8c9bd;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    margin-top:10px;
+
+}
+
+
+.story-content h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:40px;
+
+    line-height:1.15;
+
+    font-weight:500;
+
+}
+
+
+.story-content p{
+
+    color:var(--gray);
+
+    line-height:1.9;
+
+    font-size:14px;
+
+    margin-top:24px;
+
+}
+
+
+.story-points{
+
+    margin-top:30px;
+
+    display:grid;
+
+    gap:18px;
+
+}
+
+
+.point{
+
+    display:flex;
+
+    gap:14px;
+
+}
+
+
+.point-icon{
+
+    width:28px;
+    height:28px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    background:var(--sage-light);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:12px;
+
+}
+
+
+.point strong{
+
+    display:block;
+
+    font-size:13px;
+
+    margin-bottom:4px;
+
+}
+
+
+.point span{
+
+    color:var(--gray);
+
+    font-size:12px;
+
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.categories{
+
+    background:var(--cream-2);
+
+}
+
+
+.category-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+
+}
+
+
+.category{
+
+    min-height:420px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    color:white;
+
+}
+
+
+.category img{
+
+    position:absolute;
+
+    inset:0;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.7s;
+
+}
+
+
+.category::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 25%,
+            rgba(10,30,23,.78)
+        );
+
+}
+
+
+.category:hover img{
+
+    transform:scale(1.07);
+
+}
+
+
+.category-content{
+
+    position:absolute;
+
+    z-index:2;
+
+    left:25px;
+
+    right:25px;
+
+    bottom:25px;
+
+}
+
+
+.category-number{
+
+    color:#bdd0bf;
+
+    font-size:11px;
+
+    letter-spacing:.15em;
+
+}
+
+
+.category h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:32px;
+
+    font-weight:500;
+
+    margin:7px 0;
+
+}
+
+
+.category p{
+
+    color:#d5dfd6;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+}
+
+
+/* =========================================================
+   BOTANICAL LAB
+========================================================= */
+
+.lab{
+
+    background:var(--forest);
+
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.lab::before{
+
+    content:"NATURE";
+
+    position:absolute;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:230px;
+
+    color:rgba(255,255,255,.025);
+
+    right:-30px;
+
+    bottom:-50px;
+
+}
+
+
+.lab-grid{
+
+    display:grid;
+
+    grid-template-columns:.85fr 1.15fr;
+
+    gap:90px;
+
+    align-items:center;
+
+}
+
+
+.lab .section-title{
+
+    color:white;
+
+}
+
+
+.lab-text{
+
+    color:#aec1b4;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    margin-top:25px;
+
+}
+
+
+.lab-list{
+
+    margin-top:35px;
+
+    display:grid;
+
+    gap:15px;
+
+}
+
+
+.lab-item{
+
+    padding:18px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+}
+
+
+.lab-item span{
+
+    color:#9db69f;
+
+    font-size:12px;
+
+}
+
+
+.lab-visual{
+
+    position:relative;
+
+    height:600px;
+
+}
+
+
+.lab-image{
+
+    position:absolute;
+
+    width:70%;
+
+    height:500px;
+
+    right:0;
+
+    top:20px;
+
+    border-radius:180px 180px 20px 20px;
+
+    overflow:hidden;
+
+}
+
+
+.lab-image img{
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.lab-image-small{
+
+    position:absolute;
+
+    left:0;
+
+    bottom:20px;
+
+    width:230px;
+
+    height:260px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    border:8px solid var(--forest);
+
+}
+
+
+.lab-image-small img{
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+/* =========================================================
+   PRODUCT / SOLUTIONS
+========================================================= */
+
+.solutions{
+
+    background:#fffdf8;
+
+}
+
+
+.solution-grid{
+
+    display:grid;
+
+    grid-template-columns:1.2fr .8fr;
+
+    gap:20px;
+
+}
+
+
+.solution-card{
+
+    background:var(--cream);
+
+    border-radius:22px;
+
+    padding:35px;
+
+    min-height:330px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.solution-card.large{
+
+    min-height:470px;
+
+}
+
+
+.solution-card h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:35px;
+
+    font-weight:500;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.solution-card p{
+
+    color:var(--gray);
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    max-width:400px;
+
+    margin-top:12px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.solution-image{
+
+    position:absolute;
+
+    width:330px;
+
+    height:330px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    right:-40px;
+
+    bottom:-80px;
+
+}
+
+
+.solution-image img{
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.solution-small-stack{
+
+    display:grid;
+
+    gap:20px;
+
+}
+
+
+.solution-small{
+
+    min-height:225px;
+
+}
+
+
+.solution-small .solution-image{
+
+    width:170px;
+
+    height:170px;
+
+    right:-20px;
+
+    bottom:-45px;
+
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process{
+
+    background:#e4ebe2;
+
+}
+
+
+.process-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:0;
+
+    border-top:1px solid rgba(16,45,36,.15);
+
+}
+
+
+.process-item{
+
+    padding:35px 25px;
+
+    border-right:1px solid rgba(16,45,36,.15);
+
+}
+
+
+.process-item:last-child{
+
+    border-right:0;
+
+}
+
+
+.process-num{
+
+    font-size:11px;
+
+    color:#78927d;
+
+    letter-spacing:.15em;
+
+}
+
+
+.process-item h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:25px;
+
+    font-weight:500;
+
+    margin-top:45px;
+
+}
+
+
+.process-item p{
+
+    color:#718077;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    margin-top:12px;
+
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote-section{
+
+    background:#fffdf8;
+
+    text-align:center;
+
+}
+
+
+.quote-wrap{
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+.quote-symbol{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:100px;
+
+    line-height:.5;
+
+    color:#b7cbb8;
+
+}
+
+
+.quote{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(34px,5vw,60px);
+
+    line-height:1.12;
+
+    font-weight:500;
+
+    margin-top:30px;
+
+}
+
+
+.quote em{
+
+    color:#77957b;
+
+}
+
+
+.quote-author{
+
+    margin-top:30px;
+
+    color:#7c8880;
+
+    font-size:12px;
+
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+
+    margin:0 25px 100px;
+
+    min-height:560px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+
+.cta-background{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+
+.cta-background img{
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.cta-background::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(11,40,29,.75);
+
+}
+
+
+.cta-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:700px;
+
+    padding:30px;
+
+}
+
+
+.cta-content .mini-label{
+
+    justify-content:center;
+
+    color:#bfd3c0;
+
+}
+
+
+.cta-content .mini-label::before{
+
+    display:none;
+
+}
+
+
+.cta h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(48px,6vw,78px);
+
+    line-height:.98;
+
+    font-weight:500;
+
+}
+
+
+.cta p{
+
+    color:#d0dbd2;
+
+    line-height:1.8;
+
+    max-width:550px;
+
+    margin:25px auto 30px;
+
+    font-size:14px;
+
+}
+
+
+.whatsapp{
+
+    background:#25d366;
+
+    color:white;
+
+}
+
+
+.whatsapp:hover{
+
+    background:#1fba59;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    background:#0a2119;
+
+    color:white;
+
+    padding:75px 35px 25px;
+
+}
+
+
+.footer{
+
+    max-width:1250px;
+
+    margin:auto;
+
+}
+
+
+.footer-top{
+
+    display:grid;
+
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+
+    gap:50px;
+
+}
+
+
+.footer-description{
+
+    color:#8ea498;
+
+    max-width:330px;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+    margin-top:18px;
+
+}
+
+
+.footer-column h4{
+
+    font-size:12px;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+
+    color:#b9c9bc;
+
+    margin-bottom:18px;
+
+}
+
+
+.footer-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:11px;
+
+}
+
+
+.footer-column a{
+
+    color:#81998d;
+
+    font-size:13px;
+
+    transition:.3s;
+
+}
+
+
+.footer-column a:hover{
+
+    color:white;
+
+}
+
+
+.footer-bottom{
+
+    border-top:1px solid rgba(255,255,255,.09);
+
+    margin-top:60px;
+
+    padding-top:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    color:#61796d;
+
+    font-size:11px;
+
+}
+
+
+/* =========================================================
+   FLOATING WHATSAPP
+========================================================= */
+
+.float-whatsapp{
+
+    position:fixed;
+
+    z-index:999;
+
+    right:24px;
+
+    bottom:24px;
+
+    width:61px;
+    height:61px;
+
+    border-radius:50%;
+
+    background:#25d366;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    font-size:25px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+
+    transition:.3s;
+
+}
+
+
+.float-whatsapp:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+
+}
+
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px){
+
+    .navigation{
+
+        display:none;
+
+        position:absolute;
+
+        top:80px;
+
+        left:15px;
+        right:15px;
+
+        background:white;
+
+        border-radius:20px;
+
+        padding:20px;
+
+        box-shadow:0 20px 60px rgba(0,0,0,.12);
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:5px;
+
+    }
+
+
+    .navigation.active{
+
+        display:flex;
+
+    }
+
+
+    .navigation a{
+
+        padding:13px;
+
+    }
+
+
+    .menu{
+
+        display:block;
+
+    }
+
+
+    .hero-grid{
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+
+    }
+
+
+    .hero-right{
+
+        height:550px;
+
+    }
+
+
+    .story-layout,
+    .lab-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .category-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+
+    .process-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+
+    .process-item:nth-child(2){
+
+        border-right:0;
+
+    }
+
+
+    .process-item:nth-child(3),
+    .process-item:nth-child(4){
+
+        border-top:1px solid rgba(16,45,36,.15);
+
+    }
+
+
+    .footer-top{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .nav{
+
+        padding:0 18px;
+
+        height:75px;
+
+    }
+
+
+    .logo{
+
+        font-size:14px;
+
+    }
+
+
+    .logo-symbol{
+
+        width:39px;
+        height:39px;
+
+    }
+
+
+    .hero-grid{
+
+        padding:120px 18px 60px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:53px;
+
+        letter-spacing:-2.5px;
+
+    }
+
+
+    .hero-description{
+
+        font-size:14px;
+
+    }
+
+
+    .hero-right{
+
+        height:470px;
+
+    }
+
+
+    .hero-image-main{
+
+        width:84%;
+
+        height:420px;
+
+    }
+
+
+    .hero-small-image{
+
+        width:150px;
+
+        height:190px;
+
+    }
+
+
+    .hero-floating{
+
+        width:170px;
+
+        padding:15px;
+
+        right:0;
+
+        bottom:5px;
+
+    }
+
+
+    .section{
+
+        padding:85px 18px;
+
+    }
+
+
+    .section-top{
+
+        display:block;
+
+        margin-bottom:45px;
+
+    }
+
+
+    .section-intro{
+
+        margin-top:20px;
+
+    }
+
+
+    .story-visual{
+
+        height:470px;
+
+    }
+
+
+    .story-main{
+
+        width:85%;
+
+        height:430px;
+
+    }
+
+
+    .story-card{
+
+        width:210px;
+
+        padding:20px;
+
+    }
+
+
+    .story-card h3{
+
+        font-size:21px;
+
+    }
+
+
+    .category-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .category{
+
+        min-height:400px;
+
+    }
+
+
+    .lab-visual{
+
+        height:470px;
+
+    }
+
+
+    .lab-image{
+
+        height:400px;
+
+        width:82%;
+
+    }
+
+
+    .lab-image-small{
+
+        width:145px;
+
+        height:175px;
+
+    }
+
+
+    .solution-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .solution-card.large{
+
+        min-height:390px;
+
+    }
+
+
+    .process-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .process-item{
+
+        border-right:0;
+
+        border-bottom:1px solid rgba(16,45,36,.15);
+
+    }
+
+
+    .process-item:last-child{
+
+        border-bottom:0;
+
+    }
+
+
+    .process-item:nth-child(3){
+
+        border-top:0;
+
+    }
+
+
+    .footer-top{
+
+        grid-template-columns:1fr;
+
+        gap:35px;
+
+    }
+
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+    }
+
+
+    .cta{
+
+        margin:0 12px 70px;
+
+        min-height:500px;
+
+        border-radius:22px;
+
+    }
+
+
+    .float-whatsapp{
+
+        right:15px;
+
+        bottom:15px;
+
+        width:56px;
+        height:56px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+
+<!-- ======================================================
+     HEADER
+====================================================== -->
+
+<header id="header">
+
+<nav class="nav">
+
+
+<a href="#accueil" class="logo">
+
+<div class="logo-symbol">
+
+<svg viewBox="0 0 40 40" fill="none">
+
+<path
+d="M20 34C20 24 19 17 12 8"
+stroke="white"
+stroke-width="2.2"
+stroke-linecap="round"/>
+
+<path
+d="M20 25C27 24 32 18 31 10C24 10 19 15 20 25Z"
+fill="#9dbb9f"/>
+
+<path
+d="M18 21C12 20 8 15 9 10C15 10 19 14 18 21Z"
+fill="#dce9df"/>
+
+</svg>
+
+</div>
+
+
+<div class="logo-text">
+
+La Santé <span>par le Naturel</span>
+
+</div>
+
+</a>
+
+
+<div class="navigation" id="navigation">
+
+<a href="#accueil">Accueil</a>
+
+<a href="#vision">Notre vision</a>
+
+<a href="#univers">Univers</a>
+
+<a href="#solutions">Solutions</a>
+
+<a href="#contact" class="nav-button">
+Nous contacter
+</a>
+
+</div>
+
+
+<button class="menu" id="menu">
+
+☰
+
+</button>
+
+
+</nav>
+
+</header>
+
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<section class="hero" id="accueil">
+
+<div class="hero-background"></div>
+
+
+<div class="hero-grid">
+
+
+<div class="hero-left reveal">
+
+
+<div class="mini-label">
+
+La nature autrement
+
+</div>
+
+
+<h1>
+
+L'essentiel
+<br>
+
+vient de
+<em>la nature.</em>
+
+</h1>
+
+
+<p class="hero-description">
+
+Une approche moderne du bien-être inspirée par la
+richesse du monde végétal et les savoirs traditionnels.
+
+</p>
+
+
+<div class="hero-actions">
+
+<a href="#vision" class="primary">
+
+Découvrir notre univers
+
+<span>→</span>
+
+</a>
+
+
+<a href="#contact" class="secondary">
+
+Nous contacter
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-right reveal">
+
+
+<div class="hero-image-main">
+
+<img
+src="https://images.pexels.com/photos/6694195/pexels-photo-6694195.jpeg?auto=compress&cs=tinysrgb&w=1400"
+alt="Plantes naturelles"
+>
+
+</div>
+
+
+<div class="hero-small-image">
+
+<img
+src="https://images.pexels.com/photos/7615468/pexels-photo-7615468.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Préparations naturelles"
+>
+
+</div>
+
+
+<div class="hero-floating">
+
+<div class="number">
+01
+</div>
+
+<p>
+
+Comprendre la nature.
+<br>
+Découvrir ses possibilités.
+<br>
+Adopter une approche responsable.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     MARQUEE
+====================================================== -->
+
+<div class="marquee">
+
+<div class="marquee-track">
+
+
+<div class="marquee-item">
+Nature <span>✦</span>
+Bien-être <span>✦</span>
+Plantes <span>✦</span>
+Équilibre <span>✦</span>
+Tradition <span>✦</span>
+</div>
+
+
+<div class="marquee-item">
+Nature <span>✦</span>
+Bien-être <span>✦</span>
+Plantes <span>✦</span>
+Équilibre <span>✦</span>
+Tradition <span>✦</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- ======================================================
+     VISION
+====================================================== -->
+
+<section class="section story" id="vision">
+
+<div class="container">
+
+
+<div class="section-top reveal">
+
+<div>
+
+<div class="section-number">
+01 — NOTRE VISION
+</div>
+
+<h2 class="section-title">
+
+Et si prendre soin de soi
+commençait par
+<em>mieux comprendre la nature ?</em>
+
+</h2>
+
+</div>
+
+
+<p class="section-intro">
+
+Nous créons un espace où la connaissance des plantes,
+la tradition et une présentation moderne du bien-être
+se rencontrent.
+
+</p>
+
+</div>
+
+
+<div class="story-layout">
+
+
+<div class="story-visual reveal">
+
+<div class="story-main">
+
+<img
+src="https://images.pexels.com/photos/6694195/pexels-photo-6694195.jpeg?auto=compress&cs=tinysrgb&w=1200"
+alt="Botanique"
+>
+
+</div>
+
+
+<div class="story-card">
+
+<div class="leaf">
+✦
+</div>
+
+<h3>
+Le végétal au cœur
+de notre univers.
+</h3>
+
+<p>
+
+Une vision inspirée par la richesse des plantes et
+les traditions naturelles.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="story-content reveal">
+
+
+<h3>
+
+Plus qu'un produit :
+une autre manière de regarder
+le bien-être.
+
+</h3>
+
+
+<p>
+
+Le monde végétal accompagne l'humanité depuis des
+générations. Notre rôle est de rendre cette richesse
+plus accessible avec une identité moderne, claire
+et responsable.
+
+</p>
+
+
+<div class="story-points">
+
+
+<div class="point">
+
+<div class="point-icon">
+✓
+</div>
+
+<div>
+
+<strong>
+Culture botanique
+</strong>
+
+<span>
+Découvrir les plantes et leurs usages traditionnels.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="point">
+
+<div class="point-icon">
+✓
+</div>
+
+<div>
+
+<strong>
+Approche responsable
+</strong>
+
+<span>
+Informer sans promettre de miracle.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="point">
+
+<div class="point-icon">
+✓
+</div>
+
+<div>
+
+<strong>
+Accompagnement humain
+</strong>
+
+<span>
+Un contact simple pour poser vos questions.
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     UNIVERS
+====================================================== -->
+
+<section class="section categories" id="univers">
+
+<div class="container">
+
+
+<div class="section-top reveal">
+
+<div>
+
+<div class="section-number">
+02 — NOTRE UNIVERS
+</div>
+
+<h2 class="section-title">
+Explorez le monde végétal.
+</h2>
+
+</div>
+
+<p class="section-intro">
+
+Trois univers pour découvrir différentes facettes
+de notre approche naturelle.
+
+</p>
+
+</div>
+
+
+<div class="category-grid">
+
+
+<div class="category reveal">
+
+<img
+src="https://images.pexels.com/photos/6621335/pexels-photo-6621335.jpeg?auto=compress&cs=tinysrgb&w=1000"
+alt="Plantes"
+>
+
+<div class="category-content">
+
+<div class="category-number">
+01 / PLANTES
+</div>
+
+<h3>
+Le végétal
+</h3>
+
+<p>
+Découvrir les plantes et leur histoire.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="category reveal">
+
+<img
+src="https://images.pexels.com/photos/7615468/pexels-photo-7615468.jpeg?auto=compress&cs=tinysrgb&w=1000"
+alt="Bien-être naturel"
+>
+
+<div class="category-content">
+
+<div class="category-number">
+02 / BIEN-ÊTRE
+</div>
+
+<h3>
+L'équilibre
+</h3>
+
+<p>
+Des habitudes inspirées par la nature.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="category reveal">
+
+<img
+src="https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=1000"
+alt="Herbes naturelles"
+>
+
+<div class="category-content">
+
+<div class="category-number">
+03 / SAVOIR
+</div>
+
+<h3>
+La connaissance
+</h3>
+
+<p>
+Comprendre avant de choisir.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     LAB
+====================================================== -->
+
+<section class="section lab">
+
+<div class="container">
+
+
+<div class="lab-grid">
+
+
+<div class="reveal">
+
+
+<div class="section-number">
+03 — L'APPROCHE
+</div>
+
+
+<h2 class="section-title">
+
+La tradition rencontre
+une esthétique
+<em>contemporaine.</em>
+
+</h2>
+
+
+<p class="lab-text">
+
+Notre univers associe la beauté des plantes à une
+expérience digitale moderne. Chaque élément est pensé
+pour rendre la découverte plus agréable et plus claire.
+
+</p>
+
+
+<div class="lab-list">
+
+
+<div class="lab-item">
+
+<span>
+Botanique
+</span>
+
+<span>
+01
+</span>
+
+</div>
+
+
+<div class="lab-item">
+
+<span>
+Bien-être
+</span>
+
+<span>
+02
+</span>
+
+</div>
+
+
+<div class="lab-item">
+
+<span>
+Éducation
+</span>
+
+<span>
+03
+</span>
+
+</div>
+
+
+<div class="lab-item">
+
+<span>
+Accompagnement
+</span>
+
+<span>
+04
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="lab-visual reveal">
+
+
+<div class="lab-image">
+
+<img
+src="https://images.pexels.com/photos/7615453/pexels-photo-7615453.jpeg?auto=compress&cs=tinysrgb&w=1200"
+alt="Plantes et bien-être"
+>
+
+</div>
+
+
+<div class="lab-image-small">
+
+<img
+src="https://images.pexels.com/photos/6694178/pexels-photo-6694178.jpeg?auto=compress&cs=tinysrgb&w=800"
+alt="Huiles naturelles"
+>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     SOLUTIONS
+====================================================== -->
+
+<section class="section solutions" id="solutions">
+
+<div class="container">
+
+
+<div class="section-top reveal">
+
+<div>
+
+<div class="section-number">
+04 — NOS SOLUTIONS
+</div>
+
+<h2 class="section-title">
+Des solutions inspirées par la nature.
+</h2>
+
+</div>
+
+
+<p class="section-intro">
+
+Découvrez différentes catégories et contactez-nous
+pour obtenir davantage d'informations.
+
+</p>
+
+</div>
+
+
+<div class="solution-grid">
+
+
+<div class="solution-card large reveal">
+
+<h3>
+Plantes & infusions
+</h3>
+
+<p>
+
+Une sélection destinée à accompagner les routines
+quotidiennes de bien-être.
+
+</p>
+
+
+<div class="solution-image">
+
+<img
+src="https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Infusions"
+>
+
+</div>
+
+</div>
+
+
+<div class="solution-small-stack">
+
+
+<div class="solution-card solution-small reveal">
+
+<h3>
+Huiles
+</h3>
+
+<p>
+Découvrez notre univers aromatique.
+</p>
+
+
+<div class="solution-image">
+
+<img
+src="https://images.pexels.com/photos/6694178/pexels-photo-6694178.jpeg?auto=compress&cs=tinysrgb&w=700"
+alt="Huiles"
+>
+
+</div>
+
+</div>
+
+
+<div class="solution-card solution-small reveal">
+
+<h3>
+Conseils
+</h3>
+
+<p>
+Échangez directement avec nous.
+</p>
+
+
+<div class="solution-image">
+
+<img
+src="https://images.pexels.com/photos/7615468/pexels-photo-7615468.jpeg?auto=compress&cs=tinysrgb&w=700"
+alt="Conseil naturel"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     PROCESS
+====================================================== -->
+
+<section class="section process">
+
+<div class="container">
+
+
+<div class="section-top reveal">
+
+<div>
+
+<div class="section-number">
+05 — COMMENT ÇA MARCHE
+</div>
+
+<h2 class="section-title">
+Simple comme la nature.
+</h2>
+
+</div>
+
+</div>
+
+
+<div class="process-grid">
+
+
+<div class="process-item reveal">
+
+<div class="process-num">
+01
+</div>
+
+<h3>
+Vous découvrez
+</h3>
+
+<p>
+Explorez notre univers et découvrez les différentes
+possibilités naturelles.
+</p>
+
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-num">
+02
+</div>
+
+<h3>
+Vous demandez
+</h3>
+
+<p>
+Posez votre question directement à notre équipe.
+</p>
+
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-num">
+03
+</div>
+
+<h3>
+Nous échangeons
+</h3>
+
+<p>
+Nous vous présentons les informations disponibles
+sur la solution qui vous intéresse.
+</p>
+
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-num">
+04
+</div>
+
+<h3>
+Vous choisissez
+</h3>
+
+<p>
+Vous décidez librement de la suite à donner.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     QUOTE
+====================================================== -->
+
+<section class="section quote-section">
+
+<div class="quote-wrap reveal">
+
+
+<div class="quote-symbol">
+“
+</div>
+
+
+<div class="quote">
+
+La nature ne se contente pas
+d'être belle.
+Elle nous invite à
+<em>ralentir.</em>
+
+</div>
+
+
+<div class="quote-author">
+
+LA SANTÉ PAR LE NATUREL
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     CTA
+====================================================== -->
+
+<section class="cta" id="contact">
+
+
+<div class="cta-background">
+
+<img
+src="https://images.pexels.com/photos/7615453/pexels-photo-7615453.jpeg?auto=compress&cs=tinysrgb&w=1800"
+alt=""
+>
+
+</div>
+
+
+<div class="cta-content reveal">
+
+
+<div class="mini-label">
+Votre prochaine étape
+</div>
+
+
+<h2>
+Parlons
+naturellement.
+</h2>
+
+
+<p>
+
+Une question sur nos plantes, nos solutions ou notre
+approche ? Notre équipe est disponible directement
+sur WhatsApp.
+
+</p>
+
+
+<a
+href="https://wa.me/237670335411?text=Bonjour%20La%20Santé%20par%20le%20Naturel%2C%20je%20viens%20de%20votre%20site%20et%20j'aimerais%20avoir%20plus%20d'informations."
+target="_blank"
+class="primary whatsapp">
+
+WhatsApp
+<span>↗</span>
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+<div class="footer">
+
+
+<div class="footer-top">
+
+
+<div>
+
+<a href="#accueil" class="logo">
+
+<div class="logo-symbol">
+
+<svg viewBox="0 0 40 40" fill="none">
+
+<path
+d="M20 34C20 24 19 17 12 8"
+stroke="white"
+stroke-width="2.2"
+stroke-linecap="round"/>
+
+<path
+d="M20 25C27 24 32 18 31 10C24 10 19 15 20 25Z"
+fill="#9dbb9f"/>
+
+<path
+d="M18 21C12 20 8 15 9 10C15 10 19 14 18 21Z"
+fill="#dce9df"/>
+
+</svg>
+
+</div>
+
+<div class="logo-text">
+La Santé <span>par le Naturel</span>
+</div>
+
+</a>
+
+
+<p class="footer-description">
+
+Un univers moderne autour du bien-être, des plantes
+et de la connaissance du monde végétal.
+
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Explorer
+</h4>
+
+<a href="#vision">
+Notre vision
+</a>
+
+<a href="#univers">
+Notre univers
+</a>
+
+<a href="#solutions">
+Solutions
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Contact
+</h4>
+
+<a href="#contact">
+Nous contacter
+</a>
+
+<a
+href="https://wa.me/237670335411"
+target="_blank">
+WhatsApp
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Informations
+</h4>
+
+<a href="#">
+Confidentialité
+</a>
+
+<a href="#">
+Conditions
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
+© 2026 La Santé par le Naturel
+</span>
+
+<span>
+Nature • Bien-être • Équilibre
+</span>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- ======================================================
+     FLOATING WHATSAPP
+====================================================== -->
+
+<a
+href="https://wa.me/237670335411?text=Bonjour%20La%20Santé%20par%20le%20Naturel."
+target="_blank"
+class="float-whatsapp"
+aria-label="Contacter sur WhatsApp">
+
+<svg
+width="25"
+height="25"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.8">
+
+<path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"/>
+
+<path d="M8.5 8.5c.3-.4.6-.4.9-.1l1 1.2c.2.3.2.5 0 .8l-.5.6c.7 1.2 1.4 1.8 2.6 2.5l.6-.5c.3-.2.5-.2.8 0l1.2 1c.3.3.3.6-.1.9-.6.6-1.3.8-2 .6-2.3-.7-4.8-3.2-5.5-5.5-.2-.7 0-1.4.6-2Z"/>
+
+</svg>
+
+</a>
+
+
+<script>
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+const header =
+document.getElementById("header");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY > 50){
+
+        header.classList.add("scrolled");
+
+    }else{
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menu =
+document.getElementById("menu");
+
+const navigation =
+document.getElementById("navigation");
+
+
+menu.addEventListener("click",()=>{
+
+    navigation.classList.toggle("active");
+
+});
+
+
+document
+.querySelectorAll(".navigation a")
+.forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        navigation.classList.remove("active");
+
+    });
+
+});
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+const elements =
+document.querySelectorAll(".reveal");
+
+
+const observer =
+new IntersectionObserver(
+
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+},
+
+{
+    threshold:.1
+}
+
+);
+
+
+elements.forEach(element=>{
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+const glow =
+document.getElementById("cursorGlow");
+
+
+document.addEventListener("mousemove",(event)=>{
+
+    glow.style.left =
+    event.clientX + "px";
+
+    glow.style.top =
+    event.clientY + "px";
+
+});
+
+
+/* =========================================================
+   PARALLAX HERO
+========================================================= */
+
+const heroImage =
+document.querySelector(".hero-image-main");
+
+
+window.addEventListener("scroll",()=>{
+
+    if(!heroImage) return;
+
+    const value =
+    window.scrollY * .035;
+
+    heroImage.style.transform =
+    `translateY(${value}px)`;
+
+});
+
+
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
+
+document
+.querySelectorAll("img")
+.forEach(img=>{
+
+    img.addEventListener("error",()=>{
+
+        img.style.opacity=".2";
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
