@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>La Santé par le Naturel | Bien-être naturel</title>
+
+    <meta name="description"
+          content="La Santé par le Naturel — découvrez une approche naturelle du bien-être à travers les plantes, les produits naturels et les conseils de notre fondatrice.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #f8f6ef;
+            color: #18251f;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        :root {
+            --green: #183d2d;
+            --green-light: #2f7251;
+            --mint: #dcebdd;
+            --cream: #f8f6ef;
+            --white: #ffffff;
+            --gold: #c6a96b;
+            --dark: #14221b;
+            --text: #526057;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 5%;
+            transition: 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(248, 246, 239, 0.92);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 8px 35px rgba(0,0,0,0.06);
+        }
+
+        nav {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-icon {
+            width: 43px;
+            height: 43px;
+            border-radius: 50%;
+            background: var(--green);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 21px;
+        }
+
+        .brand-text {
+            line-height: 1;
+        }
+
+        .brand-text strong {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 25px;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        .brand-text span {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--green-light);
+            margin-top: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: #26352e;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 1px;
+            left: 0;
+            bottom: -6px;
+            background: var(--green-light);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-button {
+            background: var(--green);
+            color: white !important;
+            padding: 13px 21px;
+            border-radius: 30px;
+        }
+
+        .nav-button::after {
+            display: none;
+        }
+
+        .menu {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 130px 5% 80px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(248,246,239,0.98) 0%,
+                    rgba(248,246,239,0.91) 42%,
+                    rgba(248,246,239,0.28) 100%
+                ),
+                url("https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(167, 203, 175, 0.25);
+            filter: blur(30px);
+            right: -180px;
+            top: 100px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1250px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--green-light);
+            font-size: 12px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 35px;
+            height: 1px;
+            background: var(--green-light);
+        }
+
+        .hero h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(55px, 7vw, 100px);
+            line-height: 0.92;
+            font-weight: 600;
+            max-width: 750px;
+            color: var(--dark);
+        }
+
+        .hero h1 em {
+            color: var(--green-light);
+            font-weight: 500;
+        }
+
+        .hero p {
+            max-width: 570px;
+            margin-top: 28px;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #526057;
+        }
+
+        .hero-actions {
+            margin-top: 36px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 25px;
+            border-radius: 40px;
+            border: 1px solid var(--green);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(24,61,45,0.22);
+        }
+
+        .btn-outline {
+            color: var(--green);
+            background: rgba(255,255,255,0.45);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-outline:hover {
+            background: var(--green);
+            color: white;
+        }
+
+        .hero-note {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #7a847e;
+        }
+
+
+        /* =====================================================
+           INTRO
+        ===================================================== */
+
+        .intro {
+            padding: 120px 5%;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: auto;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .section-label {
+            color: var(--green-light);
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .intro h2,
+        .founder h2,
+        .products h2,
+        .nature h2,
+        .contact h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(42px, 5vw, 68px);
+            line-height: 1;
+            color: var(--dark);
+        }
+
+        .intro-text p {
+            color: var(--text);
+            line-height: 1.9;
+            margin-top: 22px;
+        }
+
+        .botanical-card {
+            min-height: 440px;
+            border-radius: 28px;
+            overflow: hidden;
+            position: relative;
+            background:
+                url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1200&q=85")
+                center/cover;
+        }
+
+        .botanical-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                transparent 35%,
+                rgba(15,43,29,0.72)
+            );
+        }
+
+        .botanical-caption {
+            position: absolute;
+            z-index: 2;
+            bottom: 30px;
+            left: 30px;
+            color: white;
+        }
+
+        .botanical-caption span {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        .botanical-caption h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 34px;
+            margin-top: 6px;
+        }
+
+
+        /* =====================================================
+           BENEFITS
+        ===================================================== */
+
+        .benefits {
+            padding: 115px 5%;
+            background: var(--cream);
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 720px;
+            margin: auto;
+        }
+
+        .section-heading p {
+            color: var(--text);
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+
+        .benefit-grid {
+            margin-top: 65px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .benefit {
+            background: white;
+            border-radius: 22px;
+            padding: 35px;
+            transition: 0.35s;
+            border: 1px solid rgba(24,61,45,0.07);
+        }
+
+        .benefit:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(24,61,45,0.09);
+        }
+
+        .benefit-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--mint);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+            margin-bottom: 25px;
+        }
+
+        .benefit h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .benefit p {
+            color: var(--text);
+            line-height: 1.75;
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           FONDATRICE
+        ===================================================== */
+
+        .founder {
+            padding: 130px 5%;
+            background: var(--green);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .founder::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 50%;
+            right: -200px;
+            top: -200px;
+        }
+
+        .founder::after {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 50%;
+            right: -70px;
+            bottom: -180px;
+        }
+
+        .founder-grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .founder-photo {
+            position: relative;
+        }
+
+        .founder-photo img {
+            width: 100%;
+            max-width: 480px;
+            height: 570px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 220px 220px 25px 25px;
+            border: 7px solid rgba(255,255,255,0.1);
+            margin: auto;
+        }
+
+        .founder-badge {
+            position: absolute;
+            bottom: 35px;
+            right: 0;
+            background: white;
+            color: var(--green);
+            border-radius: 18px;
+            padding: 18px 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .founder-badge small {
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 9px;
+            opacity: 0.65;
+        }
+
+        .founder-badge strong {
+            display: block;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 23px;
+            margin-top: 3px;
+        }
+
+        .founder .section-label {
+            color: #b9d9c1;
+        }
+
+        .founder h2 {
+            color: white;
+            max-width: 650px;
+        }
+
+        .founder h2 em {
+            color: #b9d9c1;
+            font-style: normal;
+        }
+
+        .founder-description {
+            color: rgba(255,255,255,0.74);
+            line-height: 1.9;
+            margin-top: 25px;
+            max-width: 630px;
+        }
+
+        .founder-quote {
+            margin-top: 35px;
+            padding-left: 22px;
+            border-left: 2px solid #b9d9c1;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 25px;
+            line-height: 1.35;
+            color: white;
+        }
+
+        .founder-name {
+            margin-top: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+
+        /* =====================================================
+           PRODUCTS
+        ===================================================== */
+
+        .products {
+            padding: 120px 5%;
+            background: white;
+        }
+
+        .product-grid {
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .product {
+            position: relative;
+            min-height: 430px;
+            overflow: hidden;
+            border-radius: 24px;
+        }
+
+        .product img {
+            width: 100%;
+            height: 100%;
+            min-height: 430px;
+            object-fit: cover;
+            transition: 0.7s;
+        }
+
+        .product:hover img {
+            transform: scale(1.06);
+        }
+
+        .product-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            background: linear-gradient(
+                transparent 30%,
+                rgba(8,30,20,0.82)
+            );
+            color: white;
+        }
+
+        .product-overlay span {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.75;
+        }
+
+        .product-overlay h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 31px;
+            margin-top: 5px;
+        }
+
+        .product-overlay p {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-top: 5px;
+            opacity: 0.8;
+        }
+
+
+        /* =====================================================
+           NATURE
+        ===================================================== */
+
+        .nature {
+            padding: 120px 5%;
+            background: #e8efe7;
+        }
+
+        .nature-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .nature-image {
+            height: 530px;
+            border-radius: 30px;
+            background:
+                url("https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=85")
+                center/cover;
+        }
+
+        .nature-content p {
+            margin-top: 25px;
+            line-height: 1.9;
+            color: var(--text);
+        }
+
+        .nature-list {
+            margin-top: 30px;
+            display: grid;
+            gap: 15px;
+        }
+
+        .nature-list div {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            color: #34453c;
+            font-size: 14px;
+        }
+
+        .check {
+            min-width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: var(--green);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           CTA WHATSAPP
+        ===================================================== */
+
+        .contact {
+            padding: 120px 5%;
+            background: var(--white);
+        }
+
+        .contact-box {
+            max-width: 1050px;
+            margin: auto;
+            padding: 75px;
+            border-radius: 35px;
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(24,61,45,0.97),
+                    rgba(45,105,73,0.95)
+                );
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: "✦";
+            position: absolute;
+            font-size: 220px;
+            opacity: 0.04;
+            right: 30px;
+            top: -70px;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact p {
+            max-width: 600px;
+            margin: 20px auto 30px;
+            color: rgba(255,255,255,0.76);
+            line-height: 1.8;
+        }
+
+        .whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            color: var(--green);
+            padding: 16px 27px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .whatsapp:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #10251b;
+            color: white;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-grid {
+            max-width: 1180px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr 0.7fr;
+            gap: 50px;
+        }
+
+        footer h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 28px;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.58);
+            line-height: 1.8;
+            font-size: 13px;
+            margin-top: 15px;
+            max-width: 390px;
+        }
+
+        .footer-links {
+            display: grid;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.62);
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            max-width: 1180px;
+            margin: 50px auto 0;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4);
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                background: rgba(255,255,255,0.97);
+                backdrop-filter: blur(20px);
+                padding: 35px;
+                border-radius: 25px 0 0 25px;
+                display: grid;
+                gap: 25px;
+                box-shadow: -10px 20px 50px rgba(0,0,0,0.1);
+                transition: 0.4s;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            .intro-grid,
+            .founder-grid,
+            .nature-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .benefit-grid,
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .founder-photo img {
+                max-width: 430px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media(max-width: 600px) {
+
+            header {
+                padding: 15px 5%;
+            }
+
+            .brand-text strong {
+                font-size: 21px;
+            }
+
+            .hero {
+                min-height: 760px;
+                padding: 120px 6% 70px;
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgba(248,246,239,0.93),
+                        rgba(248,246,239,0.74)
+                    ),
+                    url("https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1000&q=85")
+                    center/cover;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .intro,
+            .benefits,
+            .founder,
+            .products,
+            .nature,
+            .contact {
+                padding: 80px 6%;
+            }
+
+            .intro h2,
+            .founder h2,
+            .products h2,
+            .nature h2,
+            .contact h2 {
+                font-size: 45px;
+            }
+
+            .benefit-grid,
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .botanical-card {
+                min-height: 380px;
+            }
+
+            .founder-photo img {
+                height: 470px;
+                border-radius: 180px 180px 22px 22px;
+            }
+
+            .founder-badge {
+                right: 10px;
+                bottom: 20px;
+            }
+
+            .founder-quote {
+                font-size: 22px;
+            }
+
+            .nature-image {
+                height: 380px;
+            }
+
+            .contact-box {
+                padding: 50px 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header id="header">
+
+    <nav>
+
+        <a href="#accueil" class="brand">
+
+            <div class="brand-icon">
+                🌿
+            </div>
+
+            <div class="brand-text">
+                <strong>La Santé par le Naturel</strong>
+                <span>Bien-être • Nature • Équilibre</span>
+            </div>
+
+        </a>
+
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#accueil">Accueil</a>
+            </li>
+
+            <li>
+                <a href="#approche">Notre approche</a>
+            </li>
+
+            <li>
+                <a href="#fondatrice">Fondatrice</a>
+            </li>
+
+            <li>
+                <a href="#produits">Produits</a>
+            </li>
+
+            <li>
+                <a href="#contact" class="nav-button">
+                    Nous contacter
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="menu" id="menu">
+            ☰
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="accueil">
+
+    <div class="hero-content reveal">
+
+        <div class="eyebrow">
+            L'art du bien-être naturel
+        </div>
+
+        <h1>
+            Reconnectez-vous
+            <em>à la nature.</em>
+        </h1>
+
+        <p>
+            La Santé par le Naturel vous accompagne dans une approche
+            plus naturelle du bien-être, inspirée par la richesse des
+            plantes et des ressources naturelles.
+        </p>
+
+        <div class="hero-actions">
+
+            <a href="#produits" class="btn btn-primary">
+                Découvrir nos produits
+                →
+            </a>
+
+            <a href="#fondatrice" class="btn btn-outline">
+                Notre histoire
+            </a>
+
+        </div>
+
+        <div class="hero-note">
+            🌱 Une approche centrée sur la nature et le bien-être.
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTRODUCTION
+===================================================== -->
+
+<section class="intro" id="approche">
+
+    <div class="container intro-grid">
+
+        <div class="botanical-card reveal">
+
+            <div class="botanical-caption">
+
+                <span>
+                    La force du naturel
+                </span>
+
+                <h3>
+                    Des plantes. Une tradition.
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="intro-text reveal">
+
+            <div class="section-label">
+                Notre philosophie
+            </div>
+
+            <h2>
+                La nature comme source d'inspiration.
+            </h2>
+
+            <p>
+                Depuis toujours, les plantes occupent une place importante
+                dans les traditions de bien-être à travers le monde.
+            </p>
+
+            <p>
+                Notre démarche consiste à valoriser cette richesse naturelle
+                à travers une sélection de produits et une approche qui
+                privilégie simplicité, qualité et respect de la nature.
+            </p>
+
+            <p>
+                Parce que prendre soin de soi peut aussi commencer par
+                mieux comprendre ce que la nature nous offre.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BENEFICES
+===================================================== -->
+
+<section class="benefits">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-label">
+                Pourquoi le naturel ?
+            </div>
+
+            <h2>
+                Une approche plus proche de l'essentiel.
+            </h2>
+
+            <p>
+                Les produits issus des plantes peuvent s'intégrer dans
+                une routine de bien-être, avec une utilisation adaptée
+                et responsable.
+            </p>
+
+        </div>
+
+
+        <div class="benefit-grid">
+
+            <article class="benefit reveal">
+
+                <div class="benefit-icon">
+                    🌿
+                </div>
+
+                <h3>
+                    Richesse végétale
+                </h3>
+
+                <p>
+                    Les plantes constituent une source remarquable de
+                    composés naturels étudiés pour leurs différentes
+                    propriétés.
+                </p>
+
+            </article>
+
+
+            <article class="benefit reveal">
+
+                <div class="benefit-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    Simplicité
+                </h3>
+
+                <p>
+                    Une démarche qui cherche à revenir à des habitudes
+                    simples et à mieux intégrer la nature dans le
+                    quotidien.
+                </p>
+
+            </article>
+
+
+            <article class="benefit reveal">
+
+                <div class="benefit-icon">
+                    🫶
+                </div>
+
+                <h3>
+                    Bien-être
+                </h3>
+
+                <p>
+                    Le bien-être repose aussi sur une vision globale :
+                    alimentation équilibrée, repos, activité et bonnes
+                    habitudes de vie.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FONDATRICE
+===================================================== -->
+
+<section class="founder" id="fondatrice">
+
+    <div class="container founder-grid">
+
+
+        <div class="founder-photo reveal">
+
+            <!-- TON IMAGE LOCALE -->
+
+            <img
+                src="fondatrice.png"
+                alt="Fondatrice de La Santé par le Naturel"
+            >
+
+            <div class="founder-badge">
+
+                <small>
+                    Fondatrice
+                </small>
+
+                <strong>
+                    POMEN TAYOU MODE
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="founder-content reveal">
+
+            <div class="section-label">
+                Notre fondatrice
+            </div>
+
+            <h2>
+                Une vision du bien-être
+                <em>inspirée par la nature.</em>
+            </h2>
+
+            <p class="founder-description">
+
+                « La Santé par le Naturel » est née d'une conviction
+                simple : la nature possède une richesse extraordinaire
+                qui mérite d'être mieux connue, respectée et valorisée.
+
+                <br><br>
+
+                À travers cette initiative, POMEN TAYOU MODE souhaite
+                partager une approche du bien-être qui remet les plantes,
+                la simplicité et l'équilibre au cœur du quotidien.
+
+            </p>
+
+
+            <div class="founder-quote">
+
+                « Prendre soin de soi, c'est aussi apprendre à écouter
+                son corps, respecter son équilibre et redécouvrir les
+                trésors que la nature met à notre disposition. »
+
+            </div>
+
+
+            <div class="founder-name">
+                — POMEN TAYOU MODE
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUITS
+===================================================== -->
+
+<section class="products" id="produits">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-label">
+                L'univers naturel
+            </div>
+
+            <h2>
+                Découvrez notre sélection.
+            </h2>
+
+            <p>
+                Des produits inspirés de la richesse végétale et pensés
+                pour accompagner différentes routines de bien-être.
+            </p>
+
+        </div>
+
+
+        <div class="product-grid">
+
+
+            <article class="product reveal">
+
+                <img
+                    src="https://images.pexels.com/photos/7615470/pexels-photo-7615470.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                    alt="Produits naturels et plantes"
+                >
+
+                <div class="product-overlay">
+
+                    <span>
+                        Collection
+                    </span>
+
+                    <h3>
+                        Plantes & extraits
+                    </h3>
+
+                    <p>
+                        La richesse du monde végétal.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="product reveal">
+
+                <img
+                    src="https://images.pexels.com/photos/7526022/pexels-photo-7526022.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                    alt="Plantes et produits naturels"
+                >
+
+                <div class="product-overlay">
+
+                    <span>
+                        Bien-être
+                    </span>
+
+                    <h3>
+                        Soins naturels
+                    </h3>
+
+                    <p>
+                        Des solutions inspirées par la nature.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="product reveal">
+
+                <img
+                    src="https://images.pexels.com/photos/7615465/pexels-photo-7615465.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                    alt="Herbes naturelles"
+                >
+
+                <div class="product-overlay">
+
+                    <span>
+                        Nature
+                    </span>
+
+                    <h3>
+                        Essentiels naturels
+                    </h3>
+
+                    <p>
+                        Une sélection pensée pour votre quotidien.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION NATURE
+===================================================== -->
+
+<section class="nature">
+
+    <div class="container nature-grid">
+
+
+        <div class="nature-image reveal"></div>
+
+
+        <div class="nature-content reveal">
+
+            <div class="section-label">
+                Notre engagement
+            </div>
+
+            <h2>
+                Revenir à l'essentiel.
+            </h2>
+
+            <p>
+                Nous croyons qu'une démarche naturelle commence par
+                l'information, la qualité et une utilisation responsable
+                des produits.
+            </p>
+
+            <div class="nature-list">
+
+                <div>
+                    <span class="check">✓</span>
+                    <span>
+                        Valoriser les ressources naturelles.
+                    </span>
+                </div>
+
+                <div>
+                    <span class="check">✓</span>
+                    <span>
+                        Encourager une meilleure connaissance des plantes.
+                    </span>
+                </div>
+
+                <div>
+                    <span class="check">✓</span>
+                    <span>
+                        Privilégier une approche responsable du bien-être.
+                    </span>
+                </div>
+
+                <div>
+                    <span class="check">✓</span>
+                    <span>
+                        Mettre l'humain et son équilibre au centre.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT WHATSAPP
+===================================================== -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-box reveal">
+
+        <div class="section-label" style="color:#b9d9c1;">
+            Une question ?
+        </div>
+
+        <h2>
+            Parlons de votre bien-être.
+        </h2>
+
+        <p>
+            Découvrez nos produits naturels ou contactez-nous directement
+            pour obtenir plus d'informations sur notre sélection.
+        </p>
+
+        <a
+            class="whatsapp"
+            href="https://wa.me/237670335411?text=Bonjour%20La%20Santé%20par%20le%20Naturel,%20je%20souhaite%20avoir%20plus%20d'informations."
+            target="_blank"
+        >
+            💬 Commander / Nous contacter sur WhatsApp
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>
+                La Santé par le Naturel
+            </h3>
+
+            <p>
+                Une marque dédiée au bien-être naturel, à la valorisation
+                des plantes et à une approche plus consciente de la nature.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Navigation
+            </h3>
+
+            <div class="footer-links">
+
+                <a href="#accueil">
+                    Accueil
+                </a>
+
+                <a href="#approche">
+                    Notre approche
+                </a>
+
+                <a href="#fondatrice">
+                    Fondatrice
+                </a>
+
+                <a href="#produits">
+                    Produits
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Contact
+            </h3>
+
+            <div class="footer-links">
+
+                <a
+                    href="https://wa.me/237670335411"
+                    target="_blank"
+                >
+                    WhatsApp
+                </a>
+
+                <a href="#contact">
+                    Commander
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 La Santé par le Naturel — Tous droits réservés.
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    /* ============================
+       MENU MOBILE
+    ============================ */
+
+    const menu = document.getElementById("menu");
+    const navLinks = document.getElementById("navLinks");
+
+    menu.addEventListener("click", () => {
+
+        navLinks.classList.toggle("active");
+
+    });
+
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("active");
+
+        });
+
+    });
+
+
+    /* ============================
+       NAVBAR AU SCROLL
+    ============================ */
+
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 50) {
+
+            header.classList.add("scrolled");
+
+        } else {
+
+            header.classList.remove("scrolled");
+
+        }
+
+    });
+
+
+    /* ============================
+       ANIMATION AU SCROLL
+    ============================ */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("visible");
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    revealElements.forEach(element => {
+
+        observer.observe(element);
+
+    });
+
+
+</script>
+
+
+</body>
+</html>
