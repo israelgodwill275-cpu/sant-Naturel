@@ -1,0 +1,3278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>La Santé par le naturel</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root{
+
+    --forest:#123d32;
+    --forest-dark:#092b23;
+
+    --turquoise:#38c9a2;
+    --turquoise-dark:#179a79;
+
+    --cream:#f7f5ee;
+    --cream-dark:#eeece2;
+
+    --white:#ffffff;
+
+    --text:#17352d;
+    --muted:#71827d;
+
+    --gold:#c8a86b;
+
+    --line:#e5e7df;
+
+    --shadow:
+        0 25px 70px rgba(18,61,50,.10);
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:"DM Sans",sans-serif;
+
+    background:var(--cream);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+
+/* =====================================================
+   BACKGROUND DECORATION
+===================================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(56,201,162,.11),
+            transparent 70%
+        );
+
+    top:-220px;
+    right:-180px;
+
+    pointer-events:none;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:450px;
+    height:450px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(200,168,107,.07),
+            transparent 70%
+        );
+
+    bottom:-200px;
+    left:-180px;
+
+    pointer-events:none;
+
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app{
+
+    max-width:1240px;
+
+    margin:auto;
+
+    padding:
+        0 28px
+        50px;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    height:90px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    border-bottom:1px solid var(--line);
+
+}
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+}
+
+.brand-mark{
+
+    width:44px;
+    height:44px;
+
+    border-radius:14px;
+
+    background:var(--forest);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.brand-mark svg{
+
+    width:25px;
+
+    height:25px;
+
+    fill:none;
+
+    stroke:var(--turquoise);
+
+    stroke-width:1.8;
+
+}
+
+.brand-name{
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:20px;
+
+    font-weight:600;
+
+}
+
+.brand-name span{
+
+    color:var(--turquoise-dark);
+
+}
+
+.header-label{
+
+    font-size:12px;
+
+    color:var(--muted);
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:0;
+
+    margin:
+        30px
+        auto
+        55px;
+
+    max-width:600px;
+
+}
+
+.progress-item{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.progress-circle{
+
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    border:1px solid #cfd8d3;
+
+    background:var(--white);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    color:#82918c;
+
+    transition:.3s;
+
+}
+
+.progress-item.active
+.progress-circle{
+
+    background:var(--forest);
+
+    color:white;
+
+    border-color:var(--forest);
+
+}
+
+.progress-item.done
+.progress-circle{
+
+    background:var(--turquoise);
+
+    color:var(--forest-dark);
+
+    border-color:var(--turquoise);
+
+}
+
+.progress-line{
+
+    width:75px;
+
+    height:1px;
+
+    background:#dce1dc;
+
+}
+
+.progress-line.done{
+
+    background:var(--turquoise);
+
+}
+
+
+/* =====================================================
+   SCREEN
+===================================================== */
+
+.screen{
+
+    display:none;
+
+    animation:
+        screenIn
+        .5s
+        cubic-bezier(.2,.7,.2,1);
+
+}
+
+.screen.active{
+
+    display:block;
+
+}
+
+@keyframes screenIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    min-height:570px;
+
+    display:grid;
+
+    grid-template-columns:
+        1.05fr
+        .95fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+.hero-copy{
+
+    max-width:610px;
+
+}
+
+.eyebrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    color:
+        var(--turquoise-dark);
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:.14em;
+
+    text-transform:uppercase;
+
+    margin-bottom:20px;
+
+}
+
+.eyebrow::before{
+
+    content:"";
+
+    width:27px;
+
+    height:1px;
+
+    background:var(--turquoise);
+
+}
+
+.hero h1{
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(45px,6vw,78px);
+
+    line-height:
+        1.02;
+
+    letter-spacing:-2.5px;
+
+    font-weight:600;
+
+    margin-bottom:24px;
+
+}
+
+.hero h1 em{
+
+    color:
+        var(--turquoise-dark);
+
+    font-style:normal;
+
+}
+
+.hero-description{
+
+    color:var(--muted);
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    max-width:530px;
+
+    margin-bottom:35px;
+
+}
+
+.hero-image{
+
+    position:relative;
+
+    height:510px;
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+.hero-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.hero-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(9,43,35,.42),
+            transparent 55%
+        );
+
+}
+
+.hero-tag{
+
+    position:absolute;
+
+    left:25px;
+    bottom:25px;
+
+    z-index:2;
+
+    background:
+        rgba(255,255,255,.92);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:18px;
+
+    padding:17px 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.hero-tag-icon{
+
+    width:36px;
+    height:36px;
+
+    border-radius:11px;
+
+    background:#e0f5ed;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.hero-tag-icon svg{
+
+    width:20px;
+
+    stroke:
+        var(--turquoise-dark);
+
+}
+
+.hero-tag strong{
+
+    display:block;
+
+    font-size:13px;
+
+}
+
+.hero-tag span{
+
+    font-size:11px;
+
+    color:var(--muted);
+
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.form-card{
+
+    background:white;
+
+    border:1px solid var(--line);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    box-shadow:
+        0 18px 55px
+        rgba(18,61,50,.07);
+
+    max-width:520px;
+
+}
+
+.form-title{
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:25px;
+
+    margin-bottom:7px;
+
+}
+
+.form-subtitle{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-bottom:22px;
+
+}
+
+.field{
+
+    margin-bottom:13px;
+
+}
+
+.field label{
+
+    display:block;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    margin-bottom:7px;
+
+}
+
+.input{
+
+    width:100%;
+
+    border:1px solid #dfe4df;
+
+    background:#fafbf8;
+
+    padding:15px 16px;
+
+    border-radius:13px;
+
+    outline:none;
+
+    font-size:14px;
+
+    color:var(--text);
+
+    transition:.25s;
+
+}
+
+.input:focus{
+
+    border-color:
+        var(--turquoise);
+
+    background:white;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(56,201,162,.10);
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:13px;
+
+    padding:15px 22px;
+
+    font-weight:700;
+
+    font-size:14px;
+
+    transition:.25s;
+
+}
+
+.btn-primary{
+
+    width:100%;
+
+    color:white;
+
+    background:var(--forest);
+
+}
+
+.btn-primary:hover{
+
+    background:
+        var(--forest-dark);
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(18,61,50,.16);
+
+}
+
+.btn-turquoise{
+
+    background:
+        var(--turquoise);
+
+    color:
+        var(--forest-dark);
+
+}
+
+.btn-outline{
+
+    background:white;
+
+    color:var(--forest);
+
+    border:1px solid var(--line);
+
+}
+
+.btn-outline:hover{
+
+    border-color:
+        var(--turquoise);
+
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section-head{
+
+    max-width:700px;
+
+    margin-bottom:35px;
+
+}
+
+.section-number{
+
+    color:
+        var(--turquoise-dark);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+    margin-bottom:13px;
+
+}
+
+.section-head h2{
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(34px,5vw,52px);
+
+    line-height:1.1;
+
+    margin-bottom:12px;
+
+}
+
+.section-head p{
+
+    color:var(--muted);
+
+    line-height:1.7;
+
+}
+
+
+/* =====================================================
+   CHOICE
+===================================================== */
+
+.choice-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:22px;
+
+}
+
+.choice-card{
+
+    background:white;
+
+    border:1px solid var(--line);
+
+    border-radius:26px;
+
+    padding:34px;
+
+    min-height:270px;
+
+    cursor:pointer;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.3s;
+
+}
+
+.choice-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(56,201,162,.55);
+
+    box-shadow:var(--shadow);
+
+}
+
+.choice-number{
+
+    position:absolute;
+
+    right:25px;
+
+    top:20px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:60px;
+
+    color:#edf1ec;
+
+}
+
+.choice-icon{
+
+    width:58px;
+    height:58px;
+
+    background:#e5f6ef;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:25px;
+
+}
+
+.choice-icon svg{
+
+    width:28px;
+    height:28px;
+
+    stroke:
+        var(--turquoise-dark);
+
+    fill:none;
+
+    stroke-width:1.7;
+
+}
+
+.choice-card h3{
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:25px;
+
+    margin-bottom:10px;
+
+}
+
+.choice-card p{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    max-width:440px;
+
+}
+
+
+/* =====================================================
+   DISEASE
+===================================================== */
+
+.search-box{
+
+    position:relative;
+
+    margin-bottom:25px;
+
+}
+
+.search-box svg{
+
+    position:absolute;
+
+    width:19px;
+
+    left:17px;
+
+    top:16px;
+
+    stroke:#82918c;
+
+}
+
+.search-box input{
+
+    padding-left:50px;
+
+}
+
+.disease-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:10px;
+
+}
+
+.disease{
+
+    border:1px solid var(--line);
+
+    background:white;
+
+    color:var(--text);
+
+    border-radius:13px;
+
+    padding:14px 12px;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+    transition:.2s;
+
+}
+
+.disease:hover{
+
+    border-color:
+        var(--turquoise);
+
+    color:
+        var(--turquoise-dark);
+
+    background:#f4fcf8;
+
+}
+
+.other{
+
+    margin-top:25px;
+
+    background:
+        #edf7f2;
+
+    border-radius:22px;
+
+    padding:23px;
+
+}
+
+.other-title{
+
+    font-weight:700;
+
+    margin-bottom:12px;
+
+}
+
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+.products{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+
+}
+
+.product{
+
+    background:white;
+
+    border:1px solid var(--line);
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    transition:.3s;
+
+}
+
+.product:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow);
+
+}
+
+.product-image{
+
+    height:235px;
+
+    background:#eef1ea;
+
+    overflow:hidden;
+
+}
+
+.product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.product:hover
+.product-image img{
+
+    transform:scale(1.04);
+
+}
+
+.product-info{
+
+    padding:21px;
+
+}
+
+.product-category{
+
+    color:
+        var(--turquoise-dark);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:.12em;
+
+    margin-bottom:8px;
+
+}
+
+.product-name{
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:22px;
+
+    margin-bottom:7px;
+
+}
+
+.product-description{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.6;
+
+    min-height:38px;
+
+}
+
+.product-bottom{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-top:18px;
+
+}
+
+.product-price{
+
+    font-weight:800;
+
+    color:var(--forest);
+
+}
+
+.add-product{
+
+    width:39px;
+    height:39px;
+
+    border-radius:12px;
+
+    border:1px solid #d9e4df;
+
+    background:white;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.2s;
+
+}
+
+.add-product svg{
+
+    width:17px;
+
+    stroke:
+        var(--forest);
+
+}
+
+.add-product.selected{
+
+    background:
+        var(--turquoise);
+
+    border-color:
+        var(--turquoise);
+
+}
+
+.add-product.selected svg{
+
+    stroke:
+        var(--forest-dark);
+
+}
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+.cart-bar{
+
+    position:sticky;
+
+    bottom:18px;
+
+    z-index:20;
+
+    margin-top:35px;
+
+    background:
+        rgba(18,61,50,.97);
+
+    color:white;
+
+    border-radius:20px;
+
+    padding:16px 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(18,61,50,.22);
+
+}
+
+.cart-label{
+
+    font-size:12px;
+
+    color:#b6cbc4;
+
+}
+
+.cart-total{
+
+    font-size:20px;
+
+    font-weight:800;
+
+}
+
+.cart-button{
+
+    border:none;
+
+    background:
+        var(--turquoise);
+
+    color:
+        var(--forest-dark);
+
+    padding:13px 20px;
+
+    border-radius:12px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.final-layout{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        .85fr;
+
+    gap:30px;
+
+    align-items:start;
+
+}
+
+.summary-card{
+
+    background:white;
+
+    border:1px solid var(--line);
+
+    border-radius:26px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.summary-title{
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:30px;
+
+    margin-bottom:25px;
+
+}
+
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #edf0ec;
+
+    font-size:13px;
+
+}
+
+.summary-row span{
+
+    color:var(--muted);
+
+}
+
+.summary-total{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:20px;
+
+    padding-top:20px;
+
+}
+
+.summary-total strong{
+
+    font-size:25px;
+
+    color:
+        var(--turquoise-dark);
+
+}
+
+
+/* =====================================================
+   FOUNDER
+===================================================== */
+
+.founder-card{
+
+    background:
+        var(--forest);
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    color:white;
+
+}
+
+.founder-image{
+
+    height:340px;
+
+    overflow:hidden;
+
+}
+
+.founder-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center top;
+
+}
+
+.founder-info{
+
+    padding:25px;
+
+}
+
+.founder-small{
+
+    color:
+        var(--turquoise);
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.14em;
+
+    font-weight:800;
+
+    margin-bottom:9px;
+
+}
+
+.founder-name{
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:26px;
+
+    margin-bottom:9px;
+
+}
+
+.founder-info p{
+
+    color:#bdcdc8;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.whatsapp{
+
+    margin-top:22px;
+
+    width:100%;
+
+    background:
+        #1fbf78;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+.whatsapp svg{
+
+    width:20px;
+
+    fill:none;
+
+    stroke:white;
+
+    stroke-width:1.8;
+
+}
+
+
+/* =====================================================
+   DISCLAIMER
+===================================================== */
+
+.disclaimer{
+
+    margin-top:20px;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    background:#f7f5ee;
+
+    color:#7a827e;
+
+    font-size:11px;
+
+    line-height:1.6;
+
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+.back{
+
+    border:none;
+
+    background:none;
+
+    color:var(--muted);
+
+    cursor:pointer;
+
+    font-size:13px;
+
+    margin-bottom:25px;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:950px){
+
+    .hero{
+
+        grid-template-columns:1fr;
+
+        gap:35px;
+
+    }
+
+    .hero-copy{
+
+        max-width:700px;
+
+    }
+
+    .hero-image{
+
+        height:430px;
+
+    }
+
+    .products{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+    .disease-grid{
+
+        grid-template-columns:
+            repeat(3,1fr);
+
+    }
+
+    .final-layout{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .app{
+
+        padding:
+            0 17px
+            35px;
+
+    }
+
+    .header{
+
+        height:75px;
+
+    }
+
+    .header-label{
+
+        display:none;
+
+    }
+
+    .progress{
+
+        margin:
+            22px auto
+            35px;
+
+    }
+
+    .progress-line{
+
+        width:30px;
+
+    }
+
+    .hero{
+
+        min-height:auto;
+
+    }
+
+    .hero h1{
+
+        font-size:44px;
+
+    }
+
+    .hero-image{
+
+        height:330px;
+
+        border-radius:25px;
+
+    }
+
+    .form-card{
+
+        padding:20px;
+
+    }
+
+    .choice-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .choice-card{
+
+        min-height:220px;
+
+    }
+
+    .disease-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+    .products{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .product-image{
+
+        height:260px;
+
+    }
+
+    .cart-bar{
+
+        align-items:stretch;
+
+        flex-direction:column;
+
+    }
+
+    .cart-button{
+
+        width:100%;
+
+    }
+
+    .founder-image{
+
+        height:310px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header class="header">
+
+    <div class="brand">
+
+        <div class="brand-mark">
+
+            <svg viewBox="0 0 24 24">
+
+                <path d="M12 20
+                         C12 20 5 16 5 9
+                         C5 5 8 3 12 3
+                         C16 3 19 5 19 9
+                         C19 16 12 20 12 20Z"/>
+
+                <path d="M12 19V7"/>
+
+                <path d="M12 12
+                         C9 10 7 10 6 10"/>
+
+            </svg>
+
+        </div>
+
+        <div class="brand-name">
+            La Santé <span>par le naturel</span>
+        </div>
+
+    </div>
+
+
+    <div class="header-label">
+        Bien-être • Nature • Accompagnement
+    </div>
+
+</header>
+
+
+<!-- ==================================================
+     PROGRESS
+================================================== -->
+
+<div class="progress">
+
+    <div class="progress-item active" id="progress1">
+        <div class="progress-circle">01</div>
+    </div>
+
+    <div class="progress-line" id="line1"></div>
+
+    <div class="progress-item" id="progress2">
+        <div class="progress-circle">02</div>
+    </div>
+
+    <div class="progress-line" id="line2"></div>
+
+    <div class="progress-item" id="progress3">
+        <div class="progress-circle">03</div>
+    </div>
+
+    <div class="progress-line" id="line3"></div>
+
+    <div class="progress-item" id="progress4">
+        <div class="progress-circle">04</div>
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     SCREEN 1
+================================================== -->
+
+<section
+    id="screen1"
+    class="screen active"
+>
+
+
+<div class="hero">
+
+
+<div class="hero-copy">
+
+
+<div class="eyebrow">
+    Votre parcours naturel
+</div>
+
+
+<h1>
+
+    Une approche plus
+    <em>naturelle</em>
+    du bien-être.
+
+</h1>
+
+
+<p class="hero-description">
+
+    Bienvenue dans votre espace personnel de
+    découverte des solutions naturelles.
+    Commencez simplement en nous indiquant
+    votre nom et votre numéro.
+
+</p>
+
+
+<div class="form-card">
+
+
+<div class="form-title">
+    Commençons votre parcours
+</div>
+
+<div class="form-subtitle">
+    Aucune création de compte nécessaire.
+</div>
+
+
+<div class="field">
+
+<label>
+    Nom complet
+</label>
+
+<input
+    id="name"
+    class="input"
+    type="text"
+    placeholder="Ex. POMEN TAYOU MODE"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+    Numéro de téléphone
+</label>
+
+<input
+    id="phone"
+    class="input"
+    type="tel"
+    placeholder="+237 ..."
+>
+
+</div>
+
+
+<button
+    class="btn btn-primary"
+    onclick="goObjective()"
+>
+
+    Commencer mon parcours
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+<div class="hero-image">
+
+
+<img
+    src="https://images.unsplash.com/photo-1515586000433-45406d8e6662?auto=format&fit=crop&w=1200&q=85"
+    alt="Plantes naturelles"
+>
+
+
+<div class="hero-tag">
+
+    <div class="hero-tag-icon">
+
+        <svg viewBox="0 0 24 24">
+
+            <path
+                d="M12 21
+                   C12 21 5 16 5 9
+                   C5 5 8 3 12 3
+                   C16 3 19 5 19 9
+                   C19 16 12 21 12 21Z"
+                fill="none"
+                stroke="currentColor"
+            />
+
+            <path
+                d="M12 18V7"
+                fill="none"
+                stroke="currentColor"
+            />
+
+        </svg>
+
+    </div>
+
+    <div>
+
+        <strong>
+            La nature au cœur
+        </strong>
+
+        <span>
+            de votre parcours
+        </span>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SCREEN 2
+================================================== -->
+
+<section
+    id="screen2"
+    class="screen"
+>
+
+<button
+    class="back"
+    onclick="showScreen(1)"
+>
+    ← Retour
+</button>
+
+
+<div class="section-head">
+
+<div class="section-number">
+    Étape 02 / Votre besoin
+</div>
+
+<h2>
+    Que recherchez-vous aujourd'hui ?
+</h2>
+
+<p>
+    Choisissez l'option qui correspond
+    le mieux à votre démarche.
+</p>
+
+</div>
+
+
+<div class="choice-grid">
+
+
+<div
+    class="choice-card"
+    onclick="chooseObjective('maladie')"
+>
+
+<div class="choice-number">
+    01
+</div>
+
+
+<div class="choice-icon">
+
+<svg viewBox="0 0 24 24">
+
+    <path
+        d="M4 12h4l2-7
+           4 14 2-7h4"
+    />
+
+</svg>
+
+</div>
+
+
+<h3>
+    J'ai un problème de santé
+</h3>
+
+<p>
+    Je souhaite rechercher mon problème
+    dans la liste et découvrir les produits
+    proposés comme exemples de bien-être.
+</p>
+
+</div>
+
+
+<div
+    class="choice-card"
+    onclick="chooseObjective('prevention')"
+>
+
+<div class="choice-number">
+    02
+</div>
+
+
+<div class="choice-icon">
+
+<svg viewBox="0 0 24 24">
+
+    <path
+        d="M12 21
+           C12 21 5 16 5 9
+           C5 5 8 3 12 3
+           C16 3 19 5 19 9
+           C19 16 12 21 12 21Z"
+    />
+
+    <path d="M12 18V7"/>
+
+</svg>
+
+</div>
+
+
+<h3>
+    Je souhaite prévenir
+</h3>
+
+<p>
+    Je souhaite découvrir des produits
+    naturels dans une démarche générale
+    de prévention et de bien-être.
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="disclaimer">
+
+Cette interface est une démonstration commerciale.
+Les produits présentés ne constituent pas une prescription
+et ne doivent pas être présentés comme un traitement garanti
+d'une maladie.
+
+</div>
+
+
+</section>
+
+
+<!-- ==================================================
+     SCREEN 3
+================================================== -->
+
+<section
+    id="screen3"
+    class="screen"
+>
+
+<button
+    class="back"
+    onclick="showScreen(2)"
+>
+    ← Retour
+</button>
+
+
+<div class="section-head">
+
+<div class="section-number">
+    Étape 03 / Votre besoin
+</div>
+
+<h2>
+    Que souhaitez-vous rechercher ?
+</h2>
+
+<p>
+    Sélectionnez une catégorie ci-dessous
+    ou indiquez votre besoin manuellement.
+</p>
+
+</div>
+
+
+<div class="search-box">
+
+<svg viewBox="0 0 24 24">
+
+    <circle
+        cx="11"
+        cy="11"
+        r="7"
+        fill="none"
+        stroke-width="2"
+    />
+
+    <path
+        d="M16 16l5 5"
+        fill="none"
+        stroke-width="2"
+    />
+
+</svg>
+
+
+<input
+    id="search"
+    class="input"
+    placeholder="Rechercher une maladie ou un besoin..."
+    oninput="filterDiseases()"
+>
+
+</div>
+
+
+<div
+    id="diseaseGrid"
+    class="disease-grid"
+></div>
+
+
+<div class="other">
+
+<div class="other-title">
+    Vous ne trouvez pas votre besoin ?
+</div>
+
+
+<div style="
+display:flex;
+gap:10px;
+">
+
+<input
+    id="otherDisease"
+    class="input"
+    placeholder="Décrivez votre besoin..."
+>
+
+
+<button
+    class="btn btn-primary"
+    style="white-space:nowrap;"
+    onclick="chooseOther()"
+>
+    Continuer
+</button>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+<!-- ==================================================
+     SCREEN 4
+================================================== -->
+
+<section
+    id="screen4"
+    class="screen"
+>
+
+<button
+    class="back"
+    onclick="showScreen(3)"
+>
+    ← Retour
+</button>
+
+
+<div class="section-head">
+
+<div class="section-number">
+    Étape 04 / Sélection
+</div>
+
+<h2>
+    Votre sélection naturelle
+</h2>
+
+<p id="selectedNeed">
+    Sélectionnez les produits qui vous intéressent.
+</p>
+
+</div>
+
+
+<div
+    id="products"
+    class="products"
+></div>
+
+
+<div class="cart-bar">
+
+<div>
+
+<div class="cart-label">
+    Prix total pour la prise en charge complète
+</div>
+
+<div
+    id="total"
+    class="cart-total"
+>
+    0 FCFA
+</div>
+
+</div>
+
+
+<button
+    class="cart-button"
+    onclick="continueOrder()"
+>
+    Continuer →
+</button>
+
+</div>
+
+
+<div class="disclaimer">
+
+Les produits ci-dessous sont présentés à titre d'exemple
+dans cette maquette. Les prix sont fictifs et devront être
+remplacés par les informations réelles de votre catalogue.
+
+</div>
+
+
+</section>
+
+
+<!-- ==================================================
+     SCREEN 5
+================================================== -->
+
+<section
+    id="screen5"
+    class="screen"
+>
+
+<button
+    class="back"
+    onclick="showScreen(4)"
+>
+    ← Modifier ma sélection
+</button>
+
+
+<div class="section-head">
+
+<div class="section-number">
+    Votre demande
+</div>
+
+<h2>
+    Tout est prêt.
+</h2>
+
+<p>
+    Vérifiez les informations avant de transmettre
+    votre demande à notre équipe.
+</p>
+
+</div>
+
+
+<div class="final-layout">
+
+
+<div class="summary-card">
+
+
+<div class="summary-title">
+    Résumé de votre demande
+</div>
+
+
+<div class="summary-row">
+
+<span>
+    Nom
+</span>
+
+<strong id="summaryName"></strong>
+
+</div>
+
+
+<div class="summary-row">
+
+<span>
+    Téléphone
+</span>
+
+<strong id="summaryPhone"></strong>
+
+</div>
+
+
+<div class="summary-row">
+
+<span>
+    Besoin
+</span>
+
+<strong id="summaryNeed"></strong>
+
+</div>
+
+
+<div class="summary-row">
+
+<span>
+    Produits
+</span>
+
+<strong id="summaryProducts"></strong>
+
+</div>
+
+
+<div class="summary-total">
+
+<span>
+    Prix total
+</span>
+
+<strong id="summaryTotal">
+    0 FCFA
+</strong>
+
+</div>
+
+
+<button
+    class="btn whatsapp"
+    onclick="sendWhatsApp()"
+>
+
+
+<svg viewBox="0 0 24 24">
+
+    <path
+        d="M20 11.5
+           A8 8 0 0 1
+           8 19
+           L4 20
+           L5 16
+           A8 8 0 1 1
+           20 11.5Z"
+    />
+
+    <path
+        d="M8 9
+           C9 12 12 15 15 16"
+    />
+
+</svg>
+
+
+    Passer commande sur WhatsApp
+
+</button>
+
+
+</div>
+
+
+<!-- FONDATRICE -->
+
+<div class="founder-card">
+
+
+<div class="founder-image">
+
+<img
+    src="fondatrice.png"
+    alt="POMEN TAYOU MODE"
+>
+
+</div>
+
+
+<div class="founder-info">
+
+<div class="founder-small">
+    Fondatrice
+</div>
+
+
+<div class="founder-name">
+    POMEN TAYOU MODE
+</div>
+
+
+<p>
+    Une vision tournée vers une approche plus
+    naturelle du bien-être, avec une expérience
+    pensée pour rendre la découverte des produits
+    simple, élégante et accessible.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="disclaimer">
+
+En cas de symptômes importants, persistants ou inhabituels,
+il est important de consulter un professionnel de santé.
+Les produits naturels peuvent également présenter des
+contre-indications ou interactions avec certains traitements.
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   DONNÉES UTILISATEUR
+===================================================== */
+
+let userName = "";
+let userPhone = "";
+
+let objective = "";
+let selectedNeed = "";
+
+let selectedProducts = [];
+
+
+/* =====================================================
+   LISTE
+===================================================== */
+
+const diseases = [
+
+"Paludisme",
+"Grippe",
+"Rhume",
+"Toux",
+"Fièvre",
+"Fatigue",
+"Stress",
+"Insomnie",
+"Mal de tête",
+"Migraine",
+"Douleurs musculaires",
+"Douleurs articulaires",
+"Mal de dos",
+"Troubles digestifs",
+"Ballonnements",
+"Constipation",
+"Acidité gastrique",
+"Manque d'appétit",
+"Anémie",
+"Hypertension",
+"Diabète",
+"Cholestérol",
+"Allergies",
+"Asthme",
+"Sinusite",
+"Bronchite",
+"Arthrite",
+"Rhumatisme",
+"Problèmes de peau",
+"Acné",
+"Eczéma",
+"Psoriasis",
+"Chute de cheveux",
+"Fatigue générale",
+"Manque d'énergie",
+"Sommeil",
+"Concentration",
+"Récupération",
+"Immunité",
+"Bien-être général",
+"Santé digestive",
+"Santé respiratoire",
+"Santé articulaire",
+"Prévention"
+
+];
+
+
+/* =====================================================
+   PRODUITS
+===================================================== */
+
+const products = [
+
+{
+    name:"Cordyceps",
+    category:"Extrait botanique",
+    price:8500,
+
+    description:
+    "Exemple de complément naturel présenté dans la sélection.",
+
+    image:
+    "https://freshcap.com/cdn/shop/files/cordyceps-mushroom-extract-capsules.png"
+},
+
+{
+    name:"Baume de Galathé",
+    category:"Soin naturel",
+    price:4000,
+
+    description:
+    "Petit baume cylindrique avec couvercle rouge.",
+
+    image:
+    "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+    name:"Cellules souches",
+    category:"Bien-être cellulaire",
+    price:10000,
+
+    description:
+    "Exemple de produit présenté à titre illustratif.",
+
+    image:
+    "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+    name:"Moringa",
+    category:"Plante botanique",
+    price:4500,
+
+    description:
+    "Produit à base de plante présenté comme exemple.",
+
+    image:
+    "https://images.unsplash.com/photo-1515586000433-45406d8e6662?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+    name:"Curcuma",
+    category:"Plante naturelle",
+    price:3500,
+
+    description:
+    "Plante traditionnellement utilisée dans l'alimentation.",
+
+    image:
+    "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+    name:"Gingembre",
+    category:"Plante naturelle",
+    price:3000,
+
+    description:
+    "Exemple de produit botanique.",
+
+    image:
+    "https://images.unsplash.com/photo-1615485291234-9d694218aeb1?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+    name:"Spiruline",
+    category:"Complément naturel",
+    price:6500,
+
+    description:
+    "Exemple de complément alimentaire.",
+
+    image:
+    "https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+    name:"Aloe Vera",
+    category:"Botanique",
+    price:5000,
+
+    description:
+    "Exemple de produit issu du monde végétal.",
+
+    image:
+    "https://images.unsplash.com/photo-1596547609652-9cf5d8d0c8f1?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+    name:"Thé vert botanique",
+    category:"Infusion",
+    price:2500,
+
+    description:
+    "Exemple d'infusion naturelle.",
+
+    image:
+    "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=900&q=85"
+}
+
+];
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function showScreen(number){
+
+    document
+        .querySelectorAll(".screen")
+        .forEach(screen=>{
+            screen.classList.remove("active");
+        });
+
+    document
+        .getElementById("screen"+number)
+        .classList.add("active");
+
+
+    updateProgress(number);
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   PROGRESSION
+===================================================== */
+
+function updateProgress(number){
+
+    for(let i=1;i<=4;i++){
+
+        const item =
+            document.getElementById(
+                "progress"+i
+            );
+
+        item.classList.remove(
+            "active",
+            "done"
+        );
+
+        if(i<number){
+
+            item.classList.add("done");
+
+        }
+
+        if(i===number){
+
+            item.classList.add("active");
+
+        }
+
+    }
+
+
+    for(let i=1;i<=3;i++){
+
+        const line =
+            document.getElementById(
+                "line"+i
+            );
+
+        line.classList.toggle(
+            "done",
+            i<number
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ÉCRAN 1
+===================================================== */
+
+function goObjective(){
+
+    userName =
+        document
+        .getElementById("name")
+        .value
+        .trim();
+
+    userPhone =
+        document
+        .getElementById("phone")
+        .value
+        .trim();
+
+
+    if(!userName){
+
+        alert(
+            "Veuillez renseigner votre nom."
+        );
+
+        return;
+
+    }
+
+
+    if(!userPhone){
+
+        alert(
+            "Veuillez renseigner votre numéro."
+        );
+
+        return;
+
+    }
+
+
+    showScreen(2);
+
+}
+
+
+/* =====================================================
+   OBJECTIF
+===================================================== */
+
+function chooseObjective(value){
+
+    objective = value;
+
+    renderDiseases();
+
+    showScreen(3);
+
+}
+
+
+/* =====================================================
+   MALADIES
+===================================================== */
+
+function renderDiseases(){
+
+    const container =
+        document.getElementById(
+            "diseaseGrid"
+        );
+
+    container.innerHTML = "";
+
+
+    diseases.forEach(disease=>{
+
+        const button =
+            document.createElement("button");
+
+        button.className = "disease";
+
+        button.textContent = disease;
+
+        button.onclick = ()=>{
+
+            chooseNeed(disease);
+
+        };
+
+
+        container.appendChild(button);
+
+    });
+
+}
+
+
+/* =====================================================
+   RECHERCHE
+===================================================== */
+
+function filterDiseases(){
+
+    const value =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+
+    document
+        .querySelectorAll(".disease")
+        .forEach(button=>{
+
+            const text =
+                button.textContent
+                .toLowerCase();
+
+            button.style.display =
+                text.includes(value)
+                ? ""
+                : "none";
+
+        });
+
+}
+
+
+/* =====================================================
+   AUTRE
+===================================================== */
+
+function chooseOther(){
+
+    const value =
+        document
+        .getElementById("otherDisease")
+        .value
+        .trim();
+
+
+    if(!value){
+
+        alert(
+            "Veuillez préciser votre besoin."
+        );
+
+        return;
+
+    }
+
+
+    chooseNeed(value);
+
+}
+
+
+/* =====================================================
+   CHOISIR BESOIN
+===================================================== */
+
+function chooseNeed(value){
+
+    selectedNeed = value;
+
+    selectedProducts = [];
+
+    document
+        .getElementById("selectedNeed")
+        .textContent =
+        "Besoin sélectionné : "
+        + value
+        + ". Choisissez les produits qui vous intéressent.";
+
+    renderProducts();
+
+    showScreen(4);
+
+}
+
+
+/* =====================================================
+   PRODUITS
+===================================================== */
+
+function renderProducts(){
+
+    const container =
+        document.getElementById(
+            "products"
+        );
+
+    container.innerHTML = "";
+
+
+    products.forEach((product,index)=>{
+
+        const card =
+            document.createElement("article");
+
+        card.className = "product";
+
+
+        card.innerHTML = `
+
+            <div class="product-image">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    ${product.category}
+                </div>
+
+
+                <div class="product-name">
+                    ${product.name}
+                </div>
+
+
+                <div class="product-description">
+                    ${product.description}
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        ${formatPrice(product.price)}
+                    </div>
+
+
+                    <button
+                        class="add-product"
+                        id="product-${index}"
+                        onclick="toggleProduct(${index})"
+                        aria-label="Ajouter ${product.name}"
+                    >
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="M12 5v14M5 12h14"
+                                fill="none"
+                                stroke-width="2"
+                            />
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+
+    updateTotal();
+
+}
+
+
+/* =====================================================
+   PRODUIT
+===================================================== */
+
+function toggleProduct(index){
+
+    const button =
+        document.getElementById(
+            "product-"+index
+        );
+
+
+    const exists =
+        selectedProducts
+        .includes(index);
+
+
+    if(exists){
+
+        selectedProducts =
+            selectedProducts.filter(
+                i=>i!==index
+            );
+
+
+        button.classList.remove(
+            "selected"
+        );
+
+
+        button.innerHTML = `
+
+            <svg viewBox="0 0 24 24">
+
+                <path
+                    d="M12 5v14M5 12h14"
+                    fill="none"
+                    stroke-width="2"
+                />
+
+            </svg>
+
+        `;
+
+    }
+
+    else{
+
+        selectedProducts.push(index);
+
+        button.classList.add(
+            "selected"
+        );
+
+
+        button.innerHTML = `
+
+            <svg viewBox="0 0 24 24">
+
+                <path
+                    d="M5 12l4 4L19 6"
+                    fill="none"
+                    stroke-width="2"
+                />
+
+            </svg>
+
+        `;
+
+    }
+
+
+    updateTotal();
+
+}
+
+
+/* =====================================================
+   TOTAL
+===================================================== */
+
+function calculateTotal(){
+
+    return selectedProducts.reduce(
+        (total,index)=>{
+
+            return total +
+                products[index].price;
+
+        },
+        0
+    );
+
+}
+
+
+function updateTotal(){
+
+    document
+        .getElementById("total")
+        .textContent =
+        formatPrice(
+            calculateTotal()
+        );
+
+}
+
+
+/* =====================================================
+   CONTINUER
+===================================================== */
+
+function continueOrder(){
+
+    if(selectedProducts.length===0){
+
+        alert(
+            "Sélectionnez au moins un produit."
+        );
+
+        return;
+
+    }
+
+
+    prepareSummary();
+
+    showScreen(5);
+
+}
+
+
+/* =====================================================
+   RÉSUMÉ
+===================================================== */
+
+function prepareSummary(){
+
+    const total =
+        calculateTotal();
+
+
+    document
+        .getElementById("summaryName")
+        .textContent =
+        userName;
+
+
+    document
+        .getElementById("summaryPhone")
+        .textContent =
+        userPhone;
+
+
+    document
+        .getElementById("summaryNeed")
+        .textContent =
+        selectedNeed;
+
+
+    document
+        .getElementById("summaryProducts")
+        .textContent =
+        selectedProducts.length
+        + " produit(s)";
+
+
+    document
+        .getElementById("summaryTotal")
+        .textContent =
+        formatPrice(total);
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+function sendWhatsApp(){
+
+    let productText = "";
+
+
+    selectedProducts.forEach(index=>{
+
+        const product =
+            products[index];
+
+
+        productText +=
+            "\n- "
+            + product.name
+            + " : "
+            + formatPrice(
+                product.price
+            );
+
+    });
+
+
+    const message =
+
+`Bonjour,
+
+Je souhaite passer une commande auprès de La Santé par le naturel.
+
+Nom : ${userName}
+
+Téléphone : ${userPhone}
+
+Besoin indiqué :
+${selectedNeed}
+
+Produits sélectionnés :
+${productText}
+
+Prix total :
+${formatPrice(calculateTotal())}
+
+Merci de me contacter pour la suite de ma demande.`;
+
+
+    const url =
+        "https://wa.me/237670335411?text="
+        + encodeURIComponent(message);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+/* =====================================================
+   PRIX
+===================================================== */
+
+function formatPrice(value){
+
+    return new Intl.NumberFormat(
+        "fr-FR"
+    ).format(value)
+    + " FCFA";
+
+}
+
+
+/* =====================================================
+   INITIALISATION
+===================================================== */
+
+renderDiseases();
+
+</script>
+
+</body>
+</html>
