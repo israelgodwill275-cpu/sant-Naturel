@@ -33,9 +33,7 @@ body {
     min-height: 100vh;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .header {
     height: 75px;
@@ -99,9 +97,7 @@ body {
     font-weight: 600;
 }
 
-/* =========================
-   MAIN
-========================= */
+/* MAIN */
 
 .container {
     width: min(1150px, 88%);
@@ -130,9 +126,7 @@ body {
     color: var(--green);
 }
 
-/* =========================
-   STATS
-========================= */
+/* STATS */
 
 .stats {
     display: grid;
@@ -188,9 +182,7 @@ body {
     margin-top: 8px;
 }
 
-/* =========================
-   CONTENT GRID
-========================= */
+/* CONTENT */
 
 .content {
     display: grid;
@@ -214,9 +206,7 @@ body {
     font-size: 11px;
 }
 
-/* =========================
-   COMMANDES
-========================= */
+/* COMMANDES */
 
 .order {
     display: flex;
@@ -264,9 +254,7 @@ body {
     font-weight: 600;
 }
 
-/* =========================
-   RETRAIT
-========================= */
+/* RETRAIT */
 
 .withdraw-card {
     display: flex;
@@ -284,7 +272,8 @@ body {
     line-height: 1.7;
 }
 
-.withdraw-button {
+.withdraw-button,
+.confirm-button {
     width: 100%;
     border: none;
     padding: 15px;
@@ -297,20 +286,17 @@ body {
     transition: .25s;
 }
 
-.withdraw-button:hover {
+.withdraw-button:hover,
+.confirm-button:hover {
     background: #35e0ad;
     transform: translateY(-2px);
 }
 
-.withdraw-button:active {
-    transform: scale(.98);
-}
-
 /* =========================
-   MODAL CHARGEMENT
+   MODAL RETRAIT
 ========================= */
 
-.loading-overlay {
+.modal {
     position: fixed;
     inset: 0;
     background: rgba(3,9,7,.88);
@@ -318,21 +304,108 @@ body {
     display: none;
     align-items: center;
     justify-content: center;
+    padding: 20px;
     z-index: 100;
 }
 
-.loading-overlay.active {
+.modal.active {
     display: flex;
 }
 
-.loading-box {
-    width: min(390px, 88%);
+.modal-box {
+    width: min(410px, 100%);
     background: #0d1b17;
-    border: 1px solid rgba(32,201,151,.2);
+    border: 1px solid rgba(32,201,151,.18);
     border-radius: 22px;
-    padding: 35px 25px;
+    padding: 30px;
+    box-shadow: 0 25px 80px rgba(0,0,0,.55);
+    animation: modalIn .25s ease;
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.modal-top h2 {
+    font-size: 20px;
+}
+
+.close {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.04);
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.modal-description {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.input-label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 8px;
+    color: #cbd4d1;
+}
+
+.withdraw-input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.045);
+    color: white;
+    outline: none;
+    font-size: 15px;
+    margin-bottom: 18px;
+    transition: .2s;
+}
+
+.withdraw-input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(32,201,151,.08);
+}
+
+.withdraw-input::placeholder {
+    color: #65736e;
+}
+
+.error {
+    color: #ff7979;
+    font-size: 11px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    display: none;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.loading-box {
     text-align: center;
-    box-shadow: 0 25px 80px rgba(0,0,0,.5);
 }
 
 .loader {
@@ -362,9 +435,7 @@ body {
     line-height: 1.6;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* MOBILE */
 
 @media (max-width: 800px) {
 
@@ -413,10 +484,6 @@ body {
         padding-top: 28px;
     }
 
-    .welcome {
-        margin-bottom: 22px;
-    }
-
     .stats {
         gap: 12px;
     }
@@ -432,6 +499,10 @@ body {
 
     .balance {
         font-size: 31px;
+    }
+
+    .modal-box {
+        padding: 25px 20px;
     }
 }
 </style>
@@ -458,7 +529,6 @@ body {
 
     <div class="profile">
 
-        <!-- Remplace fondatrice.png si nécessaire -->
         <img
             src="fondatrice.png"
             class="avatar"
@@ -474,9 +544,9 @@ body {
 </header>
 
 
-<main class="container">
+<!-- DASHBOARD -->
 
-    <!-- INTRO -->
+<main class="container">
 
     <section class="welcome">
 
@@ -493,8 +563,6 @@ body {
 
     <section class="stats">
 
-        <!-- SOLDE -->
-
         <div class="card balance-card">
 
             <div class="card-label">
@@ -502,7 +570,7 @@ body {
             </div>
 
             <div class="balance">
-                2450
+                0
                 <span class="currency">FCFA</span>
             </div>
 
@@ -513,8 +581,6 @@ body {
         </div>
 
 
-        <!-- COMMANDES -->
-
         <div class="card">
 
             <div class="card-label">
@@ -522,7 +588,7 @@ body {
             </div>
 
             <div class="stat-value">
-                1
+                0
             </div>
 
             <div class="stat-small">
@@ -531,8 +597,6 @@ body {
 
         </div>
 
-
-        <!-- PRODUITS -->
 
         <div class="card">
 
@@ -553,7 +617,7 @@ body {
     </section>
 
 
-    <!-- CONTENU -->
+    <!-- SECTIONS -->
 
     <section class="content">
 
@@ -579,13 +643,15 @@ body {
                     </div>
 
                     <div>
+
                         <div class="order-name">
                             Produits naturels
                         </div>
 
                         <div class="order-count">
-                            1 commande
+                            0 commande
                         </div>
+
                     </div>
 
                 </div>
@@ -606,19 +672,21 @@ body {
                     </div>
 
                     <div>
+
                         <div class="order-name">
                             Soins & bien-être
                         </div>
 
                         <div class="order-count">
-                            1 commande
+                            0 commande
                         </div>
+
                     </div>
 
                 </div>
 
                 <div class="order-price">
-                    2450 FCFA
+                    0 FCFA
                 </div>
 
             </div>
@@ -633,6 +701,7 @@ body {
                     </div>
 
                     <div>
+
                         <div class="order-name">
                             Autres produits
                         </div>
@@ -640,6 +709,7 @@ body {
                         <div class="order-count">
                             0 commande
                         </div>
+
                     </div>
 
                 </div>
@@ -660,16 +730,15 @@ body {
             <div>
 
                 <div class="card-title">
-
                     <h2>Retrait</h2>
-
                 </div>
 
                 <div class="withdraw-info">
 
                     <p>
-                        Effectuez une demande de retrait
-                        de votre solde disponible.
+                        Demandez le retrait de votre
+                        solde disponible vers votre
+                        numéro de paiement.
                     </p>
 
                 </div>
@@ -679,7 +748,7 @@ body {
 
             <button
                 class="withdraw-button"
-                onclick="openLoading()"
+                onclick="openWithdraw()"
             >
                 Demander un retrait
             </button>
@@ -691,24 +760,89 @@ body {
 </main>
 
 
-<!-- CHARGEMENT -->
+<!-- =========================
+     MODAL NUMÉRO DE RETRAIT
+========================= -->
 
 <div
-    class="loading-overlay"
-    id="loadingOverlay"
+    class="modal"
+    id="withdrawModal"
 >
 
-    <div class="loading-box">
+    <div class="modal-box">
+
+        <div class="modal-top">
+
+            <h2>Demande de retrait</h2>
+
+            <button
+                class="close"
+                onclick="closeWithdraw()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <p class="modal-description">
+            Entrez le numéro sur lequel vous souhaitez
+            recevoir votre retrait.
+        </p>
+
+
+        <label class="input-label">
+            Numéro de retrait
+        </label>
+
+        <input
+            type="tel"
+            id="withdrawNumber"
+            class="withdraw-input"
+            placeholder="Ex : 6XXXXXXXX"
+            inputmode="numeric"
+        >
+
+        <div
+            class="error"
+            id="withdrawError"
+        >
+            Veuillez entrer un numéro valide.
+        </div>
+
+
+        <button
+            class="confirm-button"
+            onclick="confirmWithdraw()"
+        >
+            Confirmer le retrait
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MODAL CHARGEMENT
+========================= -->
+
+<div
+    class="modal"
+    id="loadingModal"
+>
+
+    <div class="modal-box loading-box">
 
         <div class="loader"></div>
 
         <h3>
-            Chargement...
+            Traitement en cours...
         </h3>
 
         <p>
-            Nous préparons votre demande de retrait.
-            Veuillez patienter.
+            Votre demande de retrait est en cours
+            de traitement. Veuillez patienter.
         </p>
 
     </div>
@@ -718,14 +852,91 @@ body {
 
 <script>
 
-function openLoading() {
+/* OUVRIR LE FORMULAIRE */
 
-    const overlay =
-        document.getElementById("loadingOverlay");
+function openWithdraw() {
 
-    overlay.classList.add("active");
+    document
+        .getElementById("withdrawModal")
+        .classList.add("active");
 
 }
+
+
+/* FERMER LE FORMULAIRE */
+
+function closeWithdraw() {
+
+    document
+        .getElementById("withdrawModal")
+        .classList.remove("active");
+
+}
+
+
+/* CONFIRMER LE RETRAIT */
+
+function confirmWithdraw() {
+
+    const number =
+        document
+        .getElementById("withdrawNumber")
+        .value
+        .trim();
+
+    const error =
+        document
+        .getElementById("withdrawError");
+
+
+    /* Vérification simple */
+
+    const cleanNumber =
+        number.replace(/\s/g, "");
+
+
+    if (
+        cleanNumber.length < 8 ||
+        !/^[0-9]+$/.test(cleanNumber)
+    ) {
+
+        error.style.display = "block";
+
+        return;
+
+    }
+
+
+    error.style.display = "none";
+
+
+    /* Fermer formulaire */
+
+    document
+        .getElementById("withdrawModal")
+        .classList.remove("active");
+
+
+    /* Afficher chargement */
+
+    document
+        .getElementById("loadingModal")
+        .classList.add("active");
+
+}
+
+
+/* CLIQUER EN DEHORS DU FORMULAIRE */
+
+document
+    .getElementById("withdrawModal")
+    .addEventListener("click", function(e) {
+
+        if (e.target === this) {
+            closeWithdraw();
+        }
+
+    });
 
 </script>
 
